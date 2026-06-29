@@ -1,0 +1,17 @@
+# Secrets — NEVER commit
+.env
+*.key
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+
+# Data / vectors (heavy, regenerable)
+*.pkl
+*.faiss
+
+# OS
+.DS_Store

@@ -1,0 +1,5 @@
+# Day 1
+anthropic
+python-dotenv
+
+# (aage ke days mein add hoga: sentence-transformers, faiss-cpu, chromadb, langchain, llama-index, ragas)
