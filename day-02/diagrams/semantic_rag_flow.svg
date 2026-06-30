@@ -1,0 +1,55 @@
+<svg viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, sans-serif" role="img">
+  <title>Semantic RAG flow: query embedded, cosine-scored against all docs, top-k sent to Claude</title>
+  <rect width="720" height="540" fill="#ffffff"/>
+  <text x="360" y="26" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a1a">Semantic RAG — File 2 ka pura flow</text>
+
+  <rect x="20" y="55" width="180" height="50" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="110" y="76" text-anchor="middle" font-size="11" font-weight="700" fill="#4338ca">query</text>
+  <text x="110" y="93" text-anchor="middle" font-size="9" fill="#6366f1">"paisa kitne din mein wapas?"</text>
+
+  <line x1="200" y1="80" x2="245" y2="80" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="248" y="55" width="120" height="50" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="308" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">embed()</text>
+  <text x="308" y="94" text-anchor="middle" font-size="9" fill="#16a34a">query to vector</text>
+
+  <line x1="368" y1="80" x2="413" y2="80" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="416" y="55" width="150" height="50" rx="10" fill="#fdf4ff" stroke="#f0abfc" stroke-width="1.5"/>
+  <text x="491" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#a21caf">cosine vs har doc</text>
+  <text x="491" y="94" text-anchor="middle" font-size="9" fill="#c026d3">5 scores niklenge</text>
+
+  <text x="360" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#374151">Har document ka score (sorted):</text>
+
+  <rect x="120" y="155" width="480" height="34" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="135" y="177" font-size="12" font-weight="700" fill="#15803d">0.456</text>
+  <text x="200" y="177" font-size="11" fill="#111827">Support: ...subah 9 se raat 9, 7 din  (galti se #1 - "din"!)</text>
+  <text x="575" y="177" font-size="13" fill="#16a34a">OK</text>
+  <rect x="120" y="193" width="480" height="34" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="135" y="215" font-size="12" font-weight="700" fill="#15803d">0.371</text>
+  <text x="200" y="215" font-size="11" fill="#111827">Refund: ...30 din ke andar full refund</text>
+  <text x="575" y="215" font-size="13" fill="#16a34a">OK</text>
+  <rect x="120" y="231" width="480" height="28" rx="8" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+  <text x="135" y="250" font-size="11" font-weight="600" fill="#9ca3af">0.21</text>
+  <text x="200" y="250" font-size="10" fill="#9ca3af">Payment / Warranty / ... (top_k=2 ke bahar, chhod diye)</text>
+  <text x="630" y="200" font-size="10" font-weight="700" fill="#16a34a" transform="rotate(90 630 200)">top_k = 2</text>
+
+  <line x1="360" y1="259" x2="360" y2="290" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+  <text x="430" y="280" font-size="9" fill="#6b7280">dono top docs = context</text>
+
+  <rect x="250" y="293" width="220" height="50" rx="10" fill="#fdf4ff" stroke="#f0abfc" stroke-width="1.5"/>
+  <text x="360" y="315" text-anchor="middle" font-size="12" font-weight="700" fill="#a21caf">Claude (context + query)</text>
+  <text x="360" y="332" text-anchor="middle" font-size="9" fill="#c026d3">"sirf context se jawab do"</text>
+
+  <line x1="360" y1="343" x2="360" y2="372" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="230" y="375" width="260" height="44" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="360" y="397" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">Grounded Answer</text>
+  <text x="360" y="412" text-anchor="middle" font-size="9" fill="#c2410c">30 din + customer care timing</text>
+
+  <rect x="60" y="440" width="600" height="78" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+  <text x="360" y="462" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">Lesson: retrieval PERFECT nahi hota</text>
+  <text x="360" y="482" text-anchor="middle" font-size="10" fill="#92400e">Weak Hinglish model "din" pe confuse hua - Support ko Refund se upar rakh diya.</text>
+  <text x="360" y="500" text-anchor="middle" font-size="10" fill="#92400e">PAR top_k=2 ne dono bheje - Claude ne sahi jawab banaya. (Quality fix: Day 7, Day 15)</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="#9ca3af"/></marker>
+  </defs>
+</svg>

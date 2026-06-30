@@ -13,6 +13,10 @@
 - Har din: ek `day-XX/` folder banta hai → code + notes likhe jaate hain → `PROGRESS.md` update hota hai → GitHub pe push.
 - Har naya session shuru karte waqt: pehle `PROGRESS.md` padho (kahan the), phir `ROADMAP.md` ka agla pending day uthao.
 - Roadmap **flexible** hai — koi topic enhance/change/add karna ho toh yeh file edit karo.
+- **Daily structure rule:** har `day-XX/` folder mein DO files honi chahiye, ek jaisa pattern: **(1) core Python / scratch version** (concept khud haath se banao, no shortcut) aur **(2) library version** (real tool use karke). Pehle scratch samjho, phir library.
+- **Notes rule:** har `day-XX/notes.md` = LIVE LECTURE NOTES. Chat ke dauraan continuously update karo (har naya concept samajhne ke baad). Sirf IMPORTANT cheezein + ek-do concrete EXAMPLE (jaise analogy/numbers) likho — sab kuch nahi. Yeh learner ke revise karne ke liye hai.
+- **Diagram rule:** jo bhi concept-diagram (SVG) chat mein dikhao, usko `day-XX/diagrams/<name>.svg` file mein bhi SAVE karo aur `notes.md` mein `![alt](diagrams/<name>.svg)` se EMBED karo. Visual notes ke saath live update hone chahiye. (GitHub markdown SVG image render kar deta hai.)
+- **Exercise rule:** har din ke aakhir mein `day-XX/exercise.md` banao — us din ke topic + scratch/library files se related questions. **Har pattern ke 2 questions:** (a) coding, (b) calculation, (c) text/short-answer, (d) true/false. Answers MAT do (learner agle din submit karega). NEXT SESSION ka pehla kaam: pichhle din ka `exercise.md` learner se solve karwao/check karo, PHIR naya topic shuru.
 
 ---
 

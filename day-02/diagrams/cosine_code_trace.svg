@@ -1,0 +1,43 @@
+<svg viewBox="0 0 720 560" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, monospace" role="img">
+  <title>How the scratch cosine code runs step by step with real numbers</title>
+  <rect width="720" height="560" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a1a">cosine_similarity([10,0], [9,0]) — andar kya hota hai</text>
+
+  <rect x="250" y="50" width="220" height="48" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="360" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="#4338ca">INPUT: a = [10, 0]   b = [9, 0]</text>
+  <text x="360" y="88" text-anchor="middle" font-size="10" fill="#6366f1">do vectors aaye (numbers ki list)</text>
+  <line x1="360" y1="98" x2="360" y2="125" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="120" y="128" width="480" height="92" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="140" y="150" font-size="12" font-weight="700" fill="#15803d">1. dot_product(a, b) — jodi-jodi guna karke jodo</text>
+  <text x="150" y="172" font-size="11" fill="#374151">zip: (10 saath 9), phir (0 saath 0)</text>
+  <text x="150" y="192" font-size="11" fill="#111827" font-weight="600">total = (10 x 9) + (0 x 0) = 90 + 0</text>
+  <rect x="510" y="178" width="75" height="26" rx="6" fill="#16a34a"/>
+  <text x="547" y="196" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">= 90</text>
+  <line x1="360" y1="220" x2="360" y2="247" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="120" y="250" width="480" height="110" rx="10" fill="#fefce8" stroke="#fde68a" stroke-width="1.5"/>
+  <text x="140" y="272" font-size="12" font-weight="700" fill="#ca8a04">2. magnitude() — har vector ki "size" (lambai)</text>
+  <text x="150" y="294" font-size="11" fill="#111827" font-weight="600">size(a) = sqrt(10x10 + 0x0) = sqrt(100)</text>
+  <rect x="430" y="280" width="60" height="24" rx="6" fill="#ca8a04"/>
+  <text x="460" y="297" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">= 10</text>
+  <text x="150" y="322" font-size="11" fill="#111827" font-weight="600">size(b) = sqrt(9x9 + 0x0) = sqrt(81)</text>
+  <rect x="430" y="308" width="60" height="24" rx="6" fill="#ca8a04"/>
+  <text x="460" y="325" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">= 9</text>
+  <text x="150" y="348" font-size="10" fill="#92400e">(Pythagoras: square karo, jodo, phir square-root)</text>
+  <line x1="360" y1="360" x2="360" y2="387" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="120" y="390" width="480" height="92" rx="10" fill="#fdf4ff" stroke="#f0abfc" stroke-width="1.5"/>
+  <text x="140" y="412" font-size="12" font-weight="700" fill="#a21caf">3. cosine_similarity() — dot / (sizeA x sizeB)</text>
+  <text x="150" y="436" font-size="12" fill="#111827" font-weight="600">= 90 / (10 x 9) = 90 / 90</text>
+  <text x="150" y="460" font-size="10" fill="#86198f">upar wale teeno results yahan jud gaye</text>
+  <line x1="360" y1="482" x2="360" y2="505" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="270" y="508" width="180" height="44" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="360" y="528" text-anchor="middle" font-size="13" font-weight="700" fill="#ea580c">SCORE = 1.0</text>
+  <text x="360" y="545" text-anchor="middle" font-size="10" fill="#c2410c">bilkul similar!</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="#9ca3af"/></marker>
+  </defs>
+</svg>
