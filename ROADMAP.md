@@ -3,7 +3,8 @@
 > **Learner:** Vijay (Frontend Developer — React, Angular, TypeScript)
 > **GitHub:** https://github.com/ranavj
 > **Approach:** Build-first (scratch → frameworks → production). Har concept frontend analogy se connect hoga.
-> **Mentor reference:** https://github.com/rahul8879/coding_ninja_genai (`04_RAG_module`)
+> **Mentor reference:** https://github.com/rahul8879/coding_ninja_genai (`04_RAG_module`) — local copy: `/Users/vijayrana/coding_ninja_genai`
+> **Day ↔ mentor notebook mapping:** [`docs/mentor-map.md`](docs/mentor-map.md) — har din pehle scratch banao, phir mapped mentor file se compare karo
 
 ---
 

@@ -26,6 +26,7 @@
 ---
 
 ## 🧠 Decisions Made
+- **Mentor map (2026-07-05):** `docs/mentor-map.md` — har day ka coding_ninja_genai notebook/project mapping. Session flow: scratch first → mentor notebook compare → notes mein "Mentor comparison" section.
 - **LLM provider:** Anthropic Claude (model `claude-sonnet-4-6`). API key in `.env`.
 - **Embeddings (Day 2+):** will use free local `sentence-transformers` (Anthropic has no embedding model).
 - **Python:** 3.9, venv at `rag-mastery/venv/`
