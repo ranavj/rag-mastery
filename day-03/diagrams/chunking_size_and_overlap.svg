@@ -1,0 +1,38 @@
+<svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, sans-serif" role="img">
+  <title>Chunk size and overlap explained</title>
+  <rect width="720" height="500" fill="#ffffff"/>
+  <text x="360" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a1a">Chunking = document ko overlapping tukdo mein todna</text>
+
+  <text x="60" y="70" font-size="13" font-weight="700" fill="#dc2626">Bina overlap - meaning boundary pe tut-ti</text>
+  <rect x="60" y="82" width="270" height="46" rx="8" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="70" y="102" font-size="10.5" fill="#7f1d1d">"...maternity leave 26 hafte</text>
+  <text x="70" y="119" font-size="10.5" fill="#7f1d1d">ki hoti hai."</text>
+  <text x="195" y="140" text-anchor="middle" font-size="9" fill="#dc2626">Chunk 1</text>
+  <rect x="345" y="82" width="300" height="46" rx="8" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="355" y="102" font-size="10.5" fill="#7f1d1d">"Yeh leave delivery se 8 hafte</text>
+  <text x="355" y="119" font-size="10.5" fill="#7f1d1d">pehle shuru..."   (kaunsi leave??)</text>
+  <text x="495" y="140" text-anchor="middle" font-size="9" fill="#dc2626">Chunk 2 (context gaya!)</text>
+
+  <text x="60" y="185" font-size="13" font-weight="700" fill="#16a34a">Overlap ke saath - context bacha rehta</text>
+  <rect x="60" y="200" width="300" height="52" rx="8" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+  <text x="70" y="222" font-size="10.5" fill="#14532d">"...maternity leave 26 hafte</text>
+  <text x="70" y="239" font-size="10.5" fill="#14532d">ki hoti hai."</text>
+  <text x="210" y="265" text-anchor="middle" font-size="9" fill="#16a34a">Chunk 1</text>
+  <rect x="250" y="200" width="110" height="52" rx="4" fill="#fde68a" fill-opacity="0.55" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <rect x="250" y="290" width="380" height="52" rx="8" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+  <text x="260" y="312" font-size="10.5" font-weight="700" fill="#b45309">"...26 hafte ki hoti hai.</text>
+  <text x="260" y="329" font-size="10.5" fill="#14532d">Yeh leave delivery se 8 hafte pehle..."</text>
+  <text x="440" y="358" text-anchor="middle" font-size="9" fill="#16a34a">Chunk 2 (context saath aaya)</text>
+  <line x1="305" y1="252" x2="305" y2="290" stroke="#f59e0b" stroke-width="2" marker-end="url(#a)"/>
+  <text x="315" y="275" font-size="10" font-weight="700" fill="#b45309">overlap (repeat)</text>
+
+  <rect x="60" y="380" width="585" height="95" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="75" y="405" font-size="12" font-weight="700" fill="#334155">Dev analogy: git diff ke "context lines"</text>
+  <text x="75" y="430" font-size="11" fill="#475569">git diff change ke upar-neeche kuch unchanged lines dikhata hai - taaki context</text>
+  <text x="75" y="450" font-size="11" fill="#475569">samajh aaye. Overlap wahi hai: har chunk pichhle ka thoda hissa saath rakhta hai.</text>
+  <text x="75" y="468" font-size="10.5" font-style="italic" fill="#64748b">Typical: chunk size ~300-500 chars, overlap ~50-100 chars (10-20%).</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="#f59e0b"/></marker>
+  </defs>
+</svg>
