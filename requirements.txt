@@ -1,5 +1,18 @@
-# Day 1
-anthropic
-python-dotenv
+# RAG Mastery — project dependencies
+# Install sab ek saath:  pip install -r requirements.txt
 
-# (aage ke days mein add hoga: sentence-transformers, faiss-cpu, chromadb, langchain, llama-index, ragas)
+# --- Day 1: RAG basics + Claude ---
+anthropic              # Claude LLM (generation)
+python-dotenv          # .env se API key load karna
+
+# --- Day 2: Embeddings + semantic search ---
+sentence-transformers  # free local embedding model (all-MiniLM-L6-v2)
+
+# --- Day 3: Chunking ---
+langchain-text-splitters   # RecursiveCharacterTextSplitter (smart chunking)
+
+# --- Day 4: Vector store ---
+faiss-cpu              # fast vector similarity search (index)
+numpy                  # vector math (dot, norm) — faiss/sentence-transformers ke saath aata hai
+
+# (aage add hoga: chromadb, langchain, llama-index, ragas, fastapi, etc.)
