@@ -5,7 +5,7 @@
 **Current status:** ✅ Day 5 done → Next: Day 6 (Document Loaders — asli PDF!)
 **Last updated:** 2026-07-14
 **⚠️ Handoff note:** Teaching style = concept-FIRST, then code; frontend (React/Angular/TS) analogies; Hinglish; never dump code without explaining "why". Go SLOW, let learner predict before revealing.
-**⚠️ NEXT SESSION first task:** Day 5 ka `day-05/exercise.md` learner se check karo (khud solve karega), PHIR Day 6 shuru. Weekend (Sat/Sun) ke baad course pull ka overview dena (docs/course-sync.md).
+**⚠️ NEXT SESSION:** Day 6 (Document Loaders) shuru — Day 5 exercise already solved ✅. Weekend (Sat/Sun) ke baad course pull ka overview dena (docs/course-sync.md).
 
 ---
 
@@ -40,9 +40,11 @@
 ## ❓ Open Questions / Stuck Points
 _(koi nahi abhi)_
 
-## ▶️ Next session (Day 5 — ChromaDB)
-- Ab tak: chunks (Day 3) + embeddings (Day 2) + FAISS index (Day 4) — sab MEMORY mein the.
-- Day 5 goal: **ChromaDB** — proper vector DATABASE (persistent, disk pe, metadata ke saath).
-- Frontend bridge: FAISS = in-memory index; Chroma = localStorage/IndexedDB jaisa persistent store.
-- Mentor: `04_RAG_NLP/session-04/02_chroma_db.ipynb`, `03_chroma_end_2_end.ipynb`, `session-05/exploring_db.ipynb`.
-- Pattern same: scratch-samajh → library → mentor compare → notes+diagram → exercise.
+## ▶️ Next session (Day 6 — Document Loaders: asli PDF!)
+- Ab tak documents haath se type kiye (strings). Day 6: ASLI files kholna — PDF, CSV, web.
+- Flow jo real banega: PDF → text nikalo (PyPDFLoader) → chunks (Day 3) → Chroma (Day 5) → search.
+- Ab metadata SACH mein batayega: kaunsa chunk kis file ke kis PAGE se aaya (D1 wala label real banega).
+- Mentor: `04_RAG_NLP/session-03/01_docuemnt_loader.ipynb` + `bajaj_finance_policy_reference.pdf`
+  (+ session-05 exploring_db.ipynb ka PDF→chunks→vectorstore flow).
+- Frontend bridge: loaders = API adapters / parsers (alag source, ek common format).
+- Pattern same: scratch (khud PDF se text) → library (LangChain loaders) → mentor compare → notes+diagram+exercise.
