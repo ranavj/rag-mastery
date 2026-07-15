@@ -1,7 +1,7 @@
-# 🚀 RAG Mastery — 25-Day Learning Journey
+# 🚀 RAG Mastery — A 25-Day Learning Journey
 
-> **Retrieval-Augmented Generation ko scratch se seekhna — ek frontend developer ke nazariye se.**
-> Har concept pehle **pure Python mein khud banaya**, phir library se compare kiya. No black boxes.
+> **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
+> Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
 [![Progress](https://img.shields.io/badge/Progress-Day%205%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
@@ -9,17 +9,17 @@
 
 ---
 
-## 🎯 Yeh repo kya hai?
+## 🎯 What is this repo?
 
-Main ek **frontend developer** (React / Angular / TypeScript) hun jo GenAI seekh raha hai.
-Yeh repo meri **daily RAG learning journey** ka living record hai:
+I'm a **frontend developer** (React / Angular / TypeScript) learning GenAI.
+This repo is the living record of my **daily RAG learning journey**:
 
-- 🛠️ **Scratch-first:** har concept (cosine similarity, chunking, vector store, persistence)
-  pehle **bina kisi library ke** khud banaya — taaki magic na lage, math lage
-- 📚 **Library-second:** phir wahi cheez production tool se (FAISS, ChromaDB, LangChain)
-- 🔗 **Frontend analogies:** har concept ko React/JS se map kiya
+- 🛠️ **Scratch-first:** every concept (cosine similarity, chunking, vector stores, persistence)
+  is built **without any library first** — so it feels like math, not magic
+- 📚 **Library-second:** then the same thing with production tools (FAISS, ChromaDB, LangChain)
+- 🔗 **Frontend analogies:** every concept mapped to React/JS ideas
   (embeddings ≈ serialization, retrieval ≈ fetch, vector DB ≈ IndexedDB, chunking ≈ pagination)
-- 📝 **Har din:** code + lecture notes + SVG diagrams + self-made exercise (solved)
+- 📝 **Every day ships:** code + lecture notes + SVG diagrams + a self-made exercise (solved)
 
 ## 📂 Structure
 
@@ -29,10 +29,10 @@ day-XX/
 ├── 02_<topic>_library.py    # same thing with the real tool
 ├── notes.md                 # lecture notes + embedded diagrams
 ├── diagrams/*.svg           # visual explanations
-└── exercise.md              # self-quiz (solved next day)
+└── exercise.md              # self-quiz (solved the next day)
 
-ROADMAP.md      # pura 25-din ka plan (5 phases)
-PROGRESS.md     # daily tracker — kahan tak pahunche
+ROADMAP.md      # the full 25-day plan (5 phases)
+PROGRESS.md     # daily tracker — where the journey stands
 docs/           # mentor-map, course-sync, future module blueprints
 ```
 
@@ -40,43 +40,43 @@ docs/           # mentor-map, course-sync, future module blueprints
 
 | Phase | Days | Focus | Status |
 |-------|------|-------|--------|
-| 🔵 Scratch se RAG | 1–4 | Embeddings, cosine, chunking, FAISS — sab khud banao | ✅ |
-| 🟢 Dots Connect | 5–8 | ChromaDB, document loaders, retrieval quality, e2e bot | 🔄 |
+| 🔵 RAG from Scratch | 1–4 | Embeddings, cosine, chunking, FAISS — all hand-built | ✅ |
+| 🟢 Connecting the Dots | 5–8 | ChromaDB, document loaders, retrieval quality, e2e bot | 🔄 |
 | 🟡 Frameworks | 9–13 | LangChain, LlamaIndex, routing, RAGAS evaluation | ⏳ |
 | 🟣 Advanced RAG | 14–18 | HyDE, re-ranking, multi-query, Agentic RAG | ⏳ |
 | 🟠 Full Project | 19–25 | React/Angular + FastAPI + Chroma + Claude full-stack app | ⏳ |
 
-## ✅ Ab tak ke highlights
+## ✅ Highlights so far
 
-- **Day 1** — RAG zero-library demo + Claude grounding (hallucination se bachav live dekha)
-- **Day 2** — Cosine similarity haath se banaya, library se **exact match** (0.2746 = 0.2746)
-- **Day 3** — Chunking: `step = chunk_size - overlap` khud derive kiya; overlap ka boundary-fix live
-- **Day 4** — MiniVectorStore class → FAISS; dono ka **same result** = proof ki FAISS sirf fast hai, alag nahi
-- **Day 5** — Persistence scratch (localStorage pattern) → ChromaDB; metadata `where` filter ne
-  retrieval bug live fix kiya
+- **Day 1** — Zero-library RAG demo + Claude grounding (watched hallucination-prevention work live)
+- **Day 2** — Built cosine similarity by hand; **exact match** with the library (0.2746 = 0.2746)
+- **Day 3** — Chunking: derived `step = chunk_size - overlap` myself; saw overlap fix the boundary problem live
+- **Day 4** — Built a MiniVectorStore class → FAISS; both gave the **same result** — proof that FAISS is just faster, not different
+- **Day 5** — Persistence from scratch (the localStorage pattern) → ChromaDB; a metadata `where` filter
+  fixed a real retrieval bug live
 
 ## 🧰 Stack
 
 - **LLM:** Anthropic Claude (`claude-sonnet-4-6`)
 - **Embeddings:** `sentence-transformers` (all-MiniLM-L6-v2 — free, local)
-- **Vector:** FAISS (in-memory index) + ChromaDB (persistent)
+- **Vectors:** FAISS (in-memory index) + ChromaDB (persistent)
 - **Chunking:** LangChain text splitters
 
-## 🏃 Run karne ke liye
+## 🏃 Getting started
 
 ```bash
 python3 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env       # apni ANTHROPIC_API_KEY daalo
+cp .env.example .env       # add your ANTHROPIC_API_KEY
 python day-01/rag_demo.py
 ```
 
-## 📖 Learning ke saath-saath
+## 📖 Learning alongside
 
-Yeh journey [Coding Ninjas GenAI course](https://github.com/rahul8879/coding_ninja_genai) ke
-saath synced hai — har day mentor ke notebooks se compare hota hai (`docs/mentor-map.md`).
-RAG ke baad: **Agents module** (blueprint `docs/agents-roadmap-draft.md` mein ready ho raha).
+This journey runs in sync with the [Coding Ninjas GenAI course](https://github.com/rahul8879/coding_ninja_genai) —
+each day is compared against the mentor's notebooks (`docs/mentor-map.md`).
+Up next after RAG: the **Agents module** (blueprint brewing in `docs/agents-roadmap-draft.md`).
 
 ---
 
-*Building in public, ek din mein thoda — [@ranavj](https://github.com/ranavj)* 🌱
+*Building in public, a little every day — [@ranavj](https://github.com/ranavj)* 🌱
