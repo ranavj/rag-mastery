@@ -12,6 +12,8 @@ env/
 # Data / vectors (heavy, regenerable)
 *.pkl
 *.faiss
+chroma_db/
+my_store.json
 
 # OS
 .DS_Store

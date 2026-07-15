@@ -15,4 +15,7 @@ langchain-text-splitters   # RecursiveCharacterTextSplitter (smart chunking)
 faiss-cpu              # fast vector similarity search (index)
 numpy                  # vector math (dot, norm) — faiss/sentence-transformers ke saath aata hai
 
+# --- Day 5: Persistent vector DB ---
+chromadb               # persistent vector database (disk pe, metadata + where-filter)
+
 # (aage add hoga: chromadb, langchain, llama-index, ragas, fastapi, etc.)
