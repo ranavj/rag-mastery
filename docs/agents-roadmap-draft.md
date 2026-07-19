@@ -25,7 +25,8 @@ RAG = one-shot (retrieve→generate). **Agent = LOOP** (soch → tool → soch �
 | S3 Real agent + memory | CodeSentinel (PR reviewer) | tools (sensors/actuators), agent↔tools LOOP (`should_continue`), **short-term memory** (MemorySaver + thread_id), HITL |
 | S4 Long-term memory | CodeSentinel v2 | CoALA 3 memory types in code: **semantic** (standards), **procedural** (skills .md), **episodic** (author history). PostgresStore+embeddings (**memory = RAG!**), memory-as-tools, HITL `interrupt()` for sensitive tools |
 | S5 Multi-Agent Systems | MAS patterns | coordination need; **centralised** (orchestrator) vs **peer-to-peer**; architecture **decision matrix**; drug-discovery case study. Readings: Anthropic "Building Effective Agents" (MUST), multi-agent research system, Cisco JARVIS |
-| S6 CrewAI | pehla MAS framework | Agent (role/goal/backstory) + Task + Crew (Process.sequential); **YAML config pattern**; kickoff_async. LangGraph (low-level/React) vs CrewAI (high-level/Angular) |
+| S6 CrewAI | pehla MAS framework | Agent (role/goal/backstory) + Task + Crew (Process.sequential); **YAML config pattern**; kickoff_async; `@tool` + task chaining; LangGraph (low-level/React) vs CrewAI (high-level/Angular) |
+| S6-full (Sun) | patterns + MAS in code | CrewAI: **Planning/Reflection/Human-Input** patterns + SerperDevTool + multi-agent collab. **CodeSentinel v3 (LangGraph): Supervisor pattern** — Manager decides specialists via pydantic `ReviewPlan` → security/style/test workers → final review. Centralised MAS theory→code |
 
 ---
 
