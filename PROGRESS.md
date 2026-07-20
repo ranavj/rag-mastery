@@ -2,14 +2,16 @@
 
 > Har din ke baad yeh update hoga. Naya session shuru karte waqt **yeh sabse pehle padho**.
 
-**Current status:** ✅ Day 5 done → Next: Day 6 (Document Loaders — asli PDF!)
-**Last updated:** 2026-07-14
+**Current status:** ✅ Day 6 done → Next: Day 7 (Retrieval quality — Top-K, MMR, threshold)
+**Last updated:** 2026-07-19
 **⚠️ Handoff note:** Teaching style = concept-FIRST, then code; frontend (React/Angular/TS) analogies; Hinglish; never dump code without explaining "why". Go SLOW, let learner predict before revealing.
-**⚠️ NEXT SESSION:** Day 6 (Document Loaders) shuru — Day 5 exercise already solved ✅. Weekend (Sat/Sun) ke baad course pull ka overview dena (docs/course-sync.md).
+**⚠️ NEXT SESSION first task:** Day 6 ka `day-06/exercise.md` learner se check karo, PHIR Day 7 shuru. Weekend course pull ka overview dena (docs/course-sync.md).
 
 ---
 
 ## ✅ Completed Days
+
+- **Day 6** — Document Loaders. pypdf scratch (binary→text, 12 pages) → PyPDFLoader + CLEAN step (boilerplate!) + split_documents (metadata inheritance) + Chroma → cited search (EMI bounce = Rs1000+GST, PAGE 2). Citations foundation. Mentor: CSVLoader/TextLoader; cleaning was our addition. Exercise solved.
 
 - **Day 5** — Persistence + ChromaDB. Scratch save/load (localStorage pattern) → Chroma (persist free, metadata, where-filter fixed "din" bug live). Real bug caught: relative path → `dirname(__file__)`. Mentor: LangChain wrapper, OpenAI embeddings, Pinecone (cloud vs local).
 - **Day 1** — RAG from scratch, working Claude demo + LIVE embeddings preview. Learned retrieve→augment→generate, grounding, and saw real 384-dim vectors + cosine similarity with own eyes.
@@ -26,6 +28,7 @@
 | 1 | 2026-06-29 | RAG mental model + zero-library demo + embeddings preview | ✅ Done | Concept-first session. Learner self-derived: RAG-why (LLM lacks private/fresh data, retrain too costly), retrieval, why keyword search fails ("refund" vs "paisa wapas"), embeddings = meaning→numbers, vector space (similar=near), cosine similarity. Ran `day-01/rag_demo.py` (Claude, grounding works) + `day-01/embeddings_live.py` (real 384-dim vectors; refund doc won 0.463 without the word "refund"). Noted payment scored 0.426 → scores imperfect, motivates better techniques later. See `day-01/notes.md`. |
 | 2 | 2026-06-30 | Cosine similarity (scratch) + Semantic RAG | ✅ Done | Built cosine from scratch (dot/magnitude/cosine), matched library (0.2746). Mithai `[meetha,teekha]` analogy. `02_semantic_rag.py` = semantic retrieve + Claude. Live lesson: weak Hinglish model ranked Support>Refund due to word "din"; top_k=2 saved it. 2 SVG diagrams embedded in notes. Exercise solved (all correct). |
 | 3 | 2026-07-07 | Chunking (scratch + library) | ✅ Done | `step = chunk_size - overlap` (learner derived). Scratch char-based (words break) vs library `RecursiveCharacterTextSplitter` (clean). Overlap = git diff context lines. Mentor comparison (session-03): sir did char→word→library; word-based chunking = middle ground. 1 SVG diagram. Exercise solved (all correct). |
+| 6 | 2026-07-19 | Document Loaders (scratch + library) | ✅ Done | pypdf page-by-page (binary proof: f.read()=kachra). Dirty-data lesson: repeated header/footer → milawat vectors → CLEAN before chunk. `split_documents` = metadata VIRASAT (source+page real, Day-5 fake label ab sach). Full pipeline: PDF→load→clean→chunk(500/80, 40 chunks)→Chroma→search with PAGE citation (EMI bounce Rs1000+GST @ page 2). Mentor (session-03): TextLoader+CSVLoader multi-format; no cleaning (our addition). 1 diagram. Exercise solved (all correct). |
 | 5 | 2026-07-14 | Persistence + ChromaDB (scratch + library) | ✅ Done | Scratch: MiniVectorStore + save/load (json.dump/load = localStorage pattern, .tolist() serialization). LIVE bug: relative path FileNotFoundError → `dirname(__file__)` fix. Chroma: PersistentClient (persist free), collection, add(ids/docs/metadatas), query = DISTANCE (kam=better), `where` filter ne "din" retrieval bug LIVE fix kiya. Metadata = label only (data-attributes). Mentor: LangChain Chroma wrapper + OpenAI embeddings (1536-dim match) + **Pinecone cloud DB** (local vs cloud = localStorage vs Firebase). 1 diagram. Exercise solved (all correct). |
 | 4 | 2026-07-08 | Vector Store / FAISS (scratch + library) | ✅ Done | `MiniVectorStore` class scratch → FAISS `IndexFlatIP`+`normalize_L2`. Same result (0.417) = proof. Index vs cache, ANN clustering (mohalla), O(n) problem. Python class→JS (`__init__`/`self`). Mentor (session-04): IndexFlatL2, HNSW real code, memory calc. requirements.txt maintained. 1 diagram. Exercise solved (all correct; D1 trick caught). |
 
@@ -40,11 +43,12 @@
 ## ❓ Open Questions / Stuck Points
 _(koi nahi abhi)_
 
-## ▶️ Next session (Day 6 — Document Loaders: asli PDF!)
-- Ab tak documents haath se type kiye (strings). Day 6: ASLI files kholna — PDF, CSV, web.
-- Flow jo real banega: PDF → text nikalo (PyPDFLoader) → chunks (Day 3) → Chroma (Day 5) → search.
-- Ab metadata SACH mein batayega: kaunsa chunk kis file ke kis PAGE se aaya (D1 wala label real banega).
-- Mentor: `04_RAG_NLP/session-03/01_docuemnt_loader.ipynb` + `bajaj_finance_policy_reference.pdf`
-  (+ session-05 exploring_db.ipynb ka PDF→chunks→vectorstore flow).
-- Frontend bridge: loaders = API adapters / parsers (alag source, ek common format).
-- Pattern same: scratch (khud PDF se text) → library (LangChain loaders) → mentor compare → notes+diagram+exercise.
+## ▶️ Next session (Day 7 — Retrieval Quality: Top-K, MMR, threshold)
+- Ab pipeline REAL hai (PDF→Chroma with page metadata) — par retrieval TUNE karna nahi seekha.
+- Day 7 goal: retrieval ke quality knobs — **top_k kitna ho, similarity threshold (kachra cut),
+  MMR** (diversity — same-jaise 3 chunks ki jagah alag-alag angles).
+- Day 6 wale bajaj_policy Chroma collection ko hi reuse karo (40 chunks ready hain).
+- Mentor: `04_RAG_NLP/session-06-07/03_retreiveal.ipynb` + `Projects/BFL_chatbot/app/rag_chain.py`
+  (LIVE MMR config: `k`, `fetch_k`, `lambda_mult`).
+- Frontend bridge: search ranking / debounce / result de-duplication.
+- Pattern same: scratch (threshold/MMR logic khud) → library → mentor compare → notes+diagram+exercise.

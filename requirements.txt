@@ -18,4 +18,8 @@ numpy                  # vector math (dot, norm) — faiss/sentence-transformers
 # --- Day 5: Persistent vector DB ---
 chromadb               # persistent vector database (disk pe, metadata + where-filter)
 
+# --- Day 6: Document loaders ---
+pypdf                  # PDF parser (binary streams -> text, page by page)
+langchain-community    # LangChain loaders (PyPDFLoader, CSVLoader, TextLoader...)
+
 # (aage add hoga: chromadb, langchain, llama-index, ragas, fastapi, etc.)
