@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%205%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%206%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
@@ -54,6 +54,8 @@ docs/           # mentor-map, course-sync, future module blueprints
 - **Day 4** — Built a MiniVectorStore class → FAISS; both gave the **same result** — proof that FAISS is just faster, not different
 - **Day 5** — Persistence from scratch (the localStorage pattern) → ChromaDB; a metadata `where` filter
   fixed a real retrieval bug live
+- **Day 6** — The pipeline got REAL: loaded an actual 12-page PDF (pypdf → PyPDFLoader), added a
+  cleaning step for repeated headers, and got **cited search results** — the exact answer with its page number
 
 ## 🧰 Stack
 
@@ -61,6 +63,7 @@ docs/           # mentor-map, course-sync, future module blueprints
 - **Embeddings:** `sentence-transformers` (all-MiniLM-L6-v2 — free, local)
 - **Vectors:** FAISS (in-memory index) + ChromaDB (persistent)
 - **Chunking:** LangChain text splitters
+- **Loaders:** pypdf + LangChain community loaders (PDF → text + page metadata)
 
 ## 🏃 Getting started
 
