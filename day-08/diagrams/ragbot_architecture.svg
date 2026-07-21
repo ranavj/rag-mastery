@@ -1,0 +1,54 @@
+<svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, sans-serif" role="img">
+  <title>Day 8: RAGBot engine + Streamlit UI architecture</title>
+  <rect width="720" height="500" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a1a">Day 8 — RAGBot: 6 skills = 1 engine + UI (Phase 2 capstone)</text>
+
+  <!-- UI layer -->
+  <rect x="30" y="50" width="660" height="70" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="45" y="72" font-size="12" font-weight="700" fill="#4338ca">UI LAYER — app.py (Streamlit) = React component</text>
+  <text x="45" y="94" font-size="10.5" fill="#4b5563">chat box + bubbles + citations · st.session_state = React useState (state warna reset)</text>
+  <text x="45" y="112" font-size="10" fill="#6366f1">"UI engine ko import karta — logic nahi jaanti, bas bot.ask() bulati" (separation of concerns)</text>
+
+  <line x1="360" y1="120" x2="360" y2="145" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+  <text x="410" y="137" font-size="9" fill="#6b7280">bot.ask(query)</text>
+
+  <!-- Engine -->
+  <rect x="30" y="150" width="660" height="180" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="45" y="172" font-size="12" font-weight="700" fill="#15803d">ENGINE — rag_bot.py (RAGBot class) = ApiClient service</text>
+
+  <!-- ingest -->
+  <rect x="50" y="185" width="290" height="60" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="60" y="205" font-size="11" font-weight="700" fill="#15803d">ingest(pdf) — EK BAAR</text>
+  <text x="60" y="223" font-size="9.5" fill="#166534">load(D6) → clean(D6) → chunk(D3) → store(D5)</text>
+  <text x="60" y="238" font-size="9" fill="#16a34a">persist: count&gt;0 to skip (dobara embed nahi)</text>
+
+  <!-- ask -->
+  <rect x="360" y="185" width="310" height="60" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="370" y="205" font-size="11" font-weight="700" fill="#15803d">ask(query) — HAR SAWAAL</text>
+  <text x="370" y="223" font-size="9.5" fill="#166534">retrieve+threshold(D7) → Claude(D1) → answer+cite(D6)</text>
+  <text x="370" y="238" font-size="9" fill="#16a34a">door chunks reject → "jaankari nahi" (imaandaar)</text>
+
+  <!-- tuning knobs -->
+  <rect x="50" y="258" width="620" height="30" rx="8" fill="#fefce8" stroke="#fde68a" stroke-width="1"/>
+  <text x="60" y="277" font-size="10" fill="#a16207">🎛️ knobs ek jagah: CHUNK_SIZE=500 · OVERLAP=80 · TOP_K=4 · DISTANCE_THRESHOLD=1.4</text>
+
+  <!-- data stores -->
+  <ellipse cx="180" cy="310" rx="70" ry="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.2"/>
+  <text x="180" y="314" text-anchor="middle" font-size="9" fill="#0369a1">💾 ChromaDB (40 chunks, persist)</text>
+  <ellipse cx="520" cy="310" rx="70" ry="10" fill="#fdf4ff" stroke="#f0abfc" stroke-width="1.2"/>
+  <text x="520" y="314" text-anchor="middle" font-size="9" fill="#a21caf">🤖 Claude (generation)</text>
+
+  <!-- live result -->
+  <rect x="30" y="350" width="660" height="60" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="45" y="372" font-size="11" font-weight="700" fill="#15803d">LIVE (browser): "EMI bounce penalty?" →</text>
+  <text x="45" y="392" font-size="10.5" fill="#14532d">"₹1,000 + GST per bounced mandate, T+1 din" · 📄 policy.pdf page(s) [2, 7]</text>
+
+  <!-- honest -->
+  <rect x="30" y="424" width="660" height="60" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+  <text x="360" y="446" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">Bot IMAANDAAR hai (threshold guard)</text>
+  <text x="360" y="466" text-anchor="middle" font-size="10" fill="#92400e">"pizza price?" → "jaankari policy mein nahi mili, support se sampark karein" (no hallucination)</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="#9ca3af"/></marker>
+  </defs>
+</svg>

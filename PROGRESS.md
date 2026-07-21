@@ -2,14 +2,16 @@
 
 > Har din ke baad yeh update hoga. Naya session shuru karte waqt **yeh sabse pehle padho**.
 
-**Current status:** ✅ Day 7 done → Next: Day 8 (End-to-end RAG bot, own dataset)
+**Current status:** ✅ Day 8 done — PHASE 2 COMPLETE 🎉 → Next: Day 9 (LangChain LCEL, Phase 3)
 **Last updated:** 2026-07-21
 **⚠️ Handoff note:** Teaching style = concept-FIRST, then code; frontend (React/Angular/TS) analogies; Hinglish; never dump code without explaining "why". Go SLOW, let learner predict before revealing.
-**⚠️ NEXT SESSION first task:** Day 7 ka `day-07/exercise.md` learner se check karo, PHIR Day 8 shuru. Weekend course pull ka overview dena (docs/course-sync.md).
+**⚠️ NEXT SESSION first task:** Day 8 ka `day-08/exercise.md` learner se check karo, PHIR Day 9 (Phase 3 shuru). Weekend course pull ka overview dena (docs/course-sync.md).
 
 ---
 
 ## ✅ Completed Days
+
+- **Day 8** — 🎉 PHASE 2 CAPSTONE: `RAGBot` class (ingest+ask, all 6 skills) + **Streamlit browser chat UI** (`app.py`). Tested LIVE in browser: EMI bounce → ₹1000+GST + page[2,7] citation; pizza → honest "not found" (threshold guard). Engine/UI separation (ApiClient vs component); st.session_state = React useState. Mentor bajajbot: hybrid BM25(sparse)+dense+EnsembleRetriever (Day 15 topic).
 
 - **Day 7** — Retrieval Quality: top_k / threshold / MMR (all scratch + LangChain). Live: k=6 noise, threshold rejected 'pizza' (anti-hallucination), MMR scale-mismatch bug (lam=0.5 no effect, lam=0.1 worked). 🐛 **Caught a real bug in mentor's BFL_chatbot production config** (fetch_k==k kills MMR diversity; 'threshold' ignored in mmr mode) — the win of building scratch-first. Reused Day-6 bajaj_policy collection.
 
@@ -32,6 +34,7 @@
 | 3 | 2026-07-07 | Chunking (scratch + library) | ✅ Done | `step = chunk_size - overlap` (learner derived). Scratch char-based (words break) vs library `RecursiveCharacterTextSplitter` (clean). Overlap = git diff context lines. Mentor comparison (session-03): sir did char→word→library; word-based chunking = middle ground. 1 SVG diagram. Exercise solved (all correct). |
 | 6 | 2026-07-19 | Document Loaders (scratch + library) | ✅ Done | pypdf page-by-page (binary proof: f.read()=kachra). Dirty-data lesson: repeated header/footer → milawat vectors → CLEAN before chunk. `split_documents` = metadata VIRASAT (source+page real, Day-5 fake label ab sach). Full pipeline: PDF→load→clean→chunk(500/80, 40 chunks)→Chroma→search with PAGE citation (EMI bounce Rs1000+GST @ page 2). Mentor (session-03): TextLoader+CSVLoader multi-format; no cleaning (our addition). 1 diagram. Exercise solved (all correct). |
 | 7 | 2026-07-21 | Retrieval Quality: top_k/threshold/MMR (scratch + library) | ✅ Done | 3 knobs. top_k drift (k=6 pulls credit-score/balance-transfer noise). Threshold rejects out-of-corpus query ("pizza"→"jawab nahi mila", anti-hallucination); distance-mode KAM=better vs similarity-mode ZYADA=better (tune on real scores: 0.3 wrongly rejected EMI@0.297→0.25). MMR=Maximal Marginal Relevance (thali not 3 katori daal); scratch scale-mismatch (relevance -dist vs repeat cosine, diff scales)→lam=0.5 no effect, lam=0.1 gave p7+p5+p7 diverse. 🐛 Mentor BFL_chatbot bug: fetch_k==k (no MMR choice) + threshold ignored in mmr mode. LangChain normalizes internally. Mentor 03_retreiveal = LlamaIndex (Day10). 1 diagram. Exercise solved (all correct). |
+| 8 | 2026-07-21 | End-to-end RAGBot + Streamlit UI (CAPSTONE) | ✅ Done | `RAGBot` class: ingest()=load+clean+chunk+store (once, persist-skip), ask()=retrieve+threshold+Claude+citations (per query, returns {answer,sources}). Streamlit `app.py` = browser chat (st.session_state=useState; script re-runs top-to-bottom). LIVE browser test: EMI bounce=Rs1000+GST @page[2,7]; pizza="jaankari nahi mili" (honest). Knobs top-of-file (config/code separation). Mentor session4_bajajbot: hardcoded Documents, HuggingFace emb, +**BM25 sparse + dense + EnsembleRetriever hybrid** (dense=meaning wins on "installment nahi de paunga", BM25=exact wins on code "BFL-PL-2024"; Day 15). 2 diagrams. Exercise solved (all correct; D1 guard-trick caught). |
 | 5 | 2026-07-14 | Persistence + ChromaDB (scratch + library) | ✅ Done | Scratch: MiniVectorStore + save/load (json.dump/load = localStorage pattern, .tolist() serialization). LIVE bug: relative path FileNotFoundError → `dirname(__file__)` fix. Chroma: PersistentClient (persist free), collection, add(ids/docs/metadatas), query = DISTANCE (kam=better), `where` filter ne "din" retrieval bug LIVE fix kiya. Metadata = label only (data-attributes). Mentor: LangChain Chroma wrapper + OpenAI embeddings (1536-dim match) + **Pinecone cloud DB** (local vs cloud = localStorage vs Firebase). 1 diagram. Exercise solved (all correct). |
 | 4 | 2026-07-08 | Vector Store / FAISS (scratch + library) | ✅ Done | `MiniVectorStore` class scratch → FAISS `IndexFlatIP`+`normalize_L2`. Same result (0.417) = proof. Index vs cache, ANN clustering (mohalla), O(n) problem. Python class→JS (`__init__`/`self`). Mentor (session-04): IndexFlatL2, HNSW real code, memory calc. requirements.txt maintained. 1 diagram. Exercise solved (all correct; D1 trick caught). |
 
@@ -46,9 +49,14 @@
 ## ❓ Open Questions / Stuck Points
 _(koi nahi abhi)_
 
-## ▶️ Next session (Day 8 — End-to-end RAG bot, own dataset)
-- Ab tak: load→clean→chunk→embed→store→tuned-retrieve sab alag-alag seekha. Day 8 = SAB JODO.
-- Goal: ek proper `RAGBot` class/module — ingest() + ask() — Day 6 pipeline + Day 7 tuned retrieval
+## ▶️ Next session (Day 9 — LangChain LCEL, Phase 3 shuru 🟡)
+- Phase 1+2 done (scratch + real pipeline + bot + UI). Ab Phase 3 = FRAMEWORKS.
+- Day 9 goal: LangChain LCEL — `prompt | llm | parser` pipe syntax; poore RAGBot ko LCEL chain mein.
+- Frontend bridge: pipe/compose (RxJS `pipe()`, unix `|`, function composition).
+- Mentor: `03_prompt_engineering/Langchain_learning/` + `Projects/scam_guard/app/chain/scam_chain.py`
+  (LCEL production example: prompt|llm|parser).
+- Pattern same: scratch (manual chain) → LCEL → mentor compare → notes+diagram+exercise.
+- IGNORE old lines below (Day 8 done).
   + Claude generation + citations, apne (ya naye) dataset pe. Yeh Phase-1/2 ka capstone.
 - Mentor: `session-04/session4_bajajbot_complete.ipynb` + `Projects/BFL_chatbot/` (full structure).
 - Frontend bridge: ek reusable service/module (jaise ek API client class).

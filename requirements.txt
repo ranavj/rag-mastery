@@ -26,3 +26,6 @@ langchain-community    # LangChain loaders (PyPDFLoader, CSVLoader, TextLoader..
 langchain-chroma       # Chroma as LangChain retriever (mmr, score_threshold modes)
 
 # (aage add hoga: chromadb, langchain, llama-index, ragas, fastapi, etc.)
+
+# --- Day 8: End-to-end bot + UI ---
+streamlit              # Python se browser chat UI (RAGBot ke upar)

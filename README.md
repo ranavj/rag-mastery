@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%207%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%208%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
@@ -59,6 +59,9 @@ docs/           # mentor-map, course-sync, future module blueprints
 - **Day 7** — Retrieval tuning (top_k, similarity threshold, MMR) from scratch; threshold taught the bot
   to say *"not found"* instead of hallucinating — and building MMR by hand let me **catch a real bug in the
   mentor's production config** (`fetch_k == k` silently kills diversity)
+- **Day 8** — 🎉 **Phase 2 capstone:** wrapped all six skills into a reusable `RAGBot` class
+  (`ingest()` + `ask()`) and gave it a **Streamlit browser chat UI** — a working RAG app that answers from
+  a real PDF *with page citations*, and honestly says "not found" when the answer isn't there
 
 ## 🧰 Stack
 
