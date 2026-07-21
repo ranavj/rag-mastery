@@ -29,3 +29,7 @@ langchain-chroma       # Chroma as LangChain retriever (mmr, score_threshold mod
 
 # --- Day 8: End-to-end bot + UI ---
 streamlit              # Python se browser chat UI (RAGBot ke upar)
+
+# --- Day 9: LangChain LCEL ---
+langchain              # LCEL chains, runnables
+langchain-anthropic    # Claude as a LangChain model (ChatAnthropic)

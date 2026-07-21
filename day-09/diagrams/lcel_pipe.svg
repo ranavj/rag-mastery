@@ -1,0 +1,61 @@
+<svg viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, sans-serif" role="img">
+  <title>Day 9: LCEL pipe — manual RAG becomes a declarative chain</title>
+  <rect width="720" height="520" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a1a">Day 9 — LCEL: vanilla → framework (wahi RAG, saaf andaaz)</text>
+
+  <!-- pipe -->
+  <text x="360" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#4338ca">chain = retriever | prompt | llm | parser</text>
+
+  <rect x="30" y="75" width="150" height="54" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="105" y="97" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">retriever</text>
+  <text x="105" y="115" text-anchor="middle" font-size="8.5" fill="#16a34a">query → chunks</text>
+  <line x1="180" y1="102" x2="205" y2="102" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+  <text x="192" y="94" text-anchor="middle" font-size="11" fill="#6b7280">|</text>
+
+  <rect x="208" y="75" width="140" height="54" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="278" y="97" text-anchor="middle" font-size="12" font-weight="700" fill="#4338ca">prompt</text>
+  <text x="278" y="115" text-anchor="middle" font-size="8.5" fill="#6366f1">{context}{question}</text>
+  <line x1="348" y1="102" x2="373" y2="102" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="376" y="75" width="130" height="54" rx="10" fill="#fdf4ff" stroke="#f0abfc" stroke-width="1.5"/>
+  <text x="441" y="97" text-anchor="middle" font-size="12" font-weight="700" fill="#a21caf">llm</text>
+  <text x="441" y="115" text-anchor="middle" font-size="8.5" fill="#c026d3">Claude</text>
+  <line x1="506" y1="102" x2="531" y2="102" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="534" y="75" width="150" height="54" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="609" y="97" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">parser</text>
+  <text x="609" y="115" text-anchor="middle" font-size="8.5" fill="#f97316">object → text</text>
+
+  <!-- the magic -->
+  <rect x="30" y="150" width="654" height="70" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="45" y="172" font-size="12" font-weight="700" fill="#334155">'|' ka raaz (File 1 mein khud banaya):</text>
+  <text x="55" y="193" font-size="10.5" font-family="monospace" fill="#475569">def __or__(self, other): return Step(lambda x: other(self(x)))</text>
+  <text x="55" y="211" font-size="10" fill="#64748b">= nested calls ko SAAF likhna. parse(llm(prompt(retrieve(q)))) == retrieve|prompt|llm|parser</text>
+
+  <!-- where did concepts go -->
+  <rect x="30" y="235" width="654" height="140" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+  <text x="360" y="257" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">🫣 8 din ke concepts GAYE nahi — CHHUP gaye (retriever ke andar)</text>
+  <text x="50" y="281" font-size="10" fill="#92400e">• Chunking (D3) → Day-6 ingest me ho chuka (40 chunks Chroma me)</text>
+  <text x="50" y="300" font-size="10" fill="#92400e">• Embeddings (D2) → SentenceTransformerEmbeddings(...) line</text>
+  <text x="50" y="319" font-size="10" fill="#92400e">• ChromaDB (D5) → Chroma(...) line   ·   Claude (D1) → ChatAnthropic(...)</text>
+  <text x="50" y="338" font-size="10" fill="#92400e">• Cosine (D2,7) → retriever search andar cosine chalata</text>
+  <text x="50" y="357" font-size="10" fill="#92400e">• top_k / MMR / threshold (D7) → search_kwargs={"k":3, ...} me</text>
+
+  <!-- vanilla vs framework -->
+  <rect x="30" y="390" width="320" height="60" rx="10" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+  <text x="190" y="410" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">Day 8 (vanilla) ~40 lines</text>
+  <text x="190" y="428" text-anchor="middle" font-size="9" fill="#7f1d1d">query→jodo→prompt→create→extract</text>
+  <text x="190" y="443" text-anchor="middle" font-size="9" fill="#991b1b">poora control, boilerplate</text>
+
+  <rect x="366" y="390" width="318" height="60" rx="10" fill="#dcfce7" stroke="#86efac" stroke-width="1.2"/>
+  <text x="525" y="410" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">Day 9 (framework) 1 chain</text>
+  <text x="525" y="428" text-anchor="middle" font-size="9" fill="#166534">retriever|prompt|llm|parser</text>
+  <text x="525" y="443" text-anchor="middle" font-size="9" fill="#15803d">saaf, composable, "unka tareeka"</text>
+
+  <text x="360" y="480" text-anchor="middle" font-size="11" font-weight="800" fill="#1a1a1a">Framework = concepts ka neat WRAPPER, replacement nahi.</text>
+  <text x="360" y="500" text-anchor="middle" font-size="10" fill="#6b7280">Scratch-first isliye: andar ka pata hai → magic ab samajh hai, black-box nahi 😎</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="#9ca3af"/></marker>
+  </defs>
+</svg>

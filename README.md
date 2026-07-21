@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%208%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%209%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
@@ -62,6 +62,9 @@ docs/           # mentor-map, course-sync, future module blueprints
 - **Day 8** — 🎉 **Phase 2 capstone:** wrapped all six skills into a reusable `RAGBot` class
   (`ingest()` + `ask()`) and gave it a **Streamlit browser chat UI** — a working RAG app that answers from
   a real PDF *with page citations*, and honestly says "not found" when the answer isn't there
+- **Day 9** — 🟡 **Phase 3 (frameworks):** rebuilt the whole RAG flow as a LangChain **LCEL chain**
+  (`retriever | prompt | llm | parser`) — after first building the `|` pipe *from scratch* with operator
+  overloading, so the framework reads as a shortcut, not a black box (vanilla-JS → React, for RAG)
 
 ## 🧰 Stack
 
