@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%206%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%207%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
@@ -56,6 +56,9 @@ docs/           # mentor-map, course-sync, future module blueprints
   fixed a real retrieval bug live
 - **Day 6** — The pipeline got REAL: loaded an actual 12-page PDF (pypdf → PyPDFLoader), added a
   cleaning step for repeated headers, and got **cited search results** — the exact answer with its page number
+- **Day 7** — Retrieval tuning (top_k, similarity threshold, MMR) from scratch; threshold taught the bot
+  to say *"not found"* instead of hallucinating — and building MMR by hand let me **catch a real bug in the
+  mentor's production config** (`fetch_k == k` silently kills diversity)
 
 ## 🧰 Stack
 

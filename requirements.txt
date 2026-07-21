@@ -22,4 +22,7 @@ chromadb               # persistent vector database (disk pe, metadata + where-f
 pypdf                  # PDF parser (binary streams -> text, page by page)
 langchain-community    # LangChain loaders (PyPDFLoader, CSVLoader, TextLoader...)
 
+# --- Day 7: Retrieval tuning ---
+langchain-chroma       # Chroma as LangChain retriever (mmr, score_threshold modes)
+
 # (aage add hoga: chromadb, langchain, llama-index, ragas, fastapi, etc.)

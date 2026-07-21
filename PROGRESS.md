@@ -2,14 +2,16 @@
 
 > Har din ke baad yeh update hoga. Naya session shuru karte waqt **yeh sabse pehle padho**.
 
-**Current status:** ✅ Day 6 done → Next: Day 7 (Retrieval quality — Top-K, MMR, threshold)
-**Last updated:** 2026-07-19
+**Current status:** ✅ Day 7 done → Next: Day 8 (End-to-end RAG bot, own dataset)
+**Last updated:** 2026-07-21
 **⚠️ Handoff note:** Teaching style = concept-FIRST, then code; frontend (React/Angular/TS) analogies; Hinglish; never dump code without explaining "why". Go SLOW, let learner predict before revealing.
-**⚠️ NEXT SESSION first task:** Day 6 ka `day-06/exercise.md` learner se check karo, PHIR Day 7 shuru. Weekend course pull ka overview dena (docs/course-sync.md).
+**⚠️ NEXT SESSION first task:** Day 7 ka `day-07/exercise.md` learner se check karo, PHIR Day 8 shuru. Weekend course pull ka overview dena (docs/course-sync.md).
 
 ---
 
 ## ✅ Completed Days
+
+- **Day 7** — Retrieval Quality: top_k / threshold / MMR (all scratch + LangChain). Live: k=6 noise, threshold rejected 'pizza' (anti-hallucination), MMR scale-mismatch bug (lam=0.5 no effect, lam=0.1 worked). 🐛 **Caught a real bug in mentor's BFL_chatbot production config** (fetch_k==k kills MMR diversity; 'threshold' ignored in mmr mode) — the win of building scratch-first. Reused Day-6 bajaj_policy collection.
 
 - **Day 6** — Document Loaders. pypdf scratch (binary→text, 12 pages) → PyPDFLoader + CLEAN step (boilerplate!) + split_documents (metadata inheritance) + Chroma → cited search (EMI bounce = Rs1000+GST, PAGE 2). Citations foundation. Mentor: CSVLoader/TextLoader; cleaning was our addition. Exercise solved.
 
@@ -29,6 +31,7 @@
 | 2 | 2026-06-30 | Cosine similarity (scratch) + Semantic RAG | ✅ Done | Built cosine from scratch (dot/magnitude/cosine), matched library (0.2746). Mithai `[meetha,teekha]` analogy. `02_semantic_rag.py` = semantic retrieve + Claude. Live lesson: weak Hinglish model ranked Support>Refund due to word "din"; top_k=2 saved it. 2 SVG diagrams embedded in notes. Exercise solved (all correct). |
 | 3 | 2026-07-07 | Chunking (scratch + library) | ✅ Done | `step = chunk_size - overlap` (learner derived). Scratch char-based (words break) vs library `RecursiveCharacterTextSplitter` (clean). Overlap = git diff context lines. Mentor comparison (session-03): sir did char→word→library; word-based chunking = middle ground. 1 SVG diagram. Exercise solved (all correct). |
 | 6 | 2026-07-19 | Document Loaders (scratch + library) | ✅ Done | pypdf page-by-page (binary proof: f.read()=kachra). Dirty-data lesson: repeated header/footer → milawat vectors → CLEAN before chunk. `split_documents` = metadata VIRASAT (source+page real, Day-5 fake label ab sach). Full pipeline: PDF→load→clean→chunk(500/80, 40 chunks)→Chroma→search with PAGE citation (EMI bounce Rs1000+GST @ page 2). Mentor (session-03): TextLoader+CSVLoader multi-format; no cleaning (our addition). 1 diagram. Exercise solved (all correct). |
+| 7 | 2026-07-21 | Retrieval Quality: top_k/threshold/MMR (scratch + library) | ✅ Done | 3 knobs. top_k drift (k=6 pulls credit-score/balance-transfer noise). Threshold rejects out-of-corpus query ("pizza"→"jawab nahi mila", anti-hallucination); distance-mode KAM=better vs similarity-mode ZYADA=better (tune on real scores: 0.3 wrongly rejected EMI@0.297→0.25). MMR=Maximal Marginal Relevance (thali not 3 katori daal); scratch scale-mismatch (relevance -dist vs repeat cosine, diff scales)→lam=0.5 no effect, lam=0.1 gave p7+p5+p7 diverse. 🐛 Mentor BFL_chatbot bug: fetch_k==k (no MMR choice) + threshold ignored in mmr mode. LangChain normalizes internally. Mentor 03_retreiveal = LlamaIndex (Day10). 1 diagram. Exercise solved (all correct). |
 | 5 | 2026-07-14 | Persistence + ChromaDB (scratch + library) | ✅ Done | Scratch: MiniVectorStore + save/load (json.dump/load = localStorage pattern, .tolist() serialization). LIVE bug: relative path FileNotFoundError → `dirname(__file__)` fix. Chroma: PersistentClient (persist free), collection, add(ids/docs/metadatas), query = DISTANCE (kam=better), `where` filter ne "din" retrieval bug LIVE fix kiya. Metadata = label only (data-attributes). Mentor: LangChain Chroma wrapper + OpenAI embeddings (1536-dim match) + **Pinecone cloud DB** (local vs cloud = localStorage vs Firebase). 1 diagram. Exercise solved (all correct). |
 | 4 | 2026-07-08 | Vector Store / FAISS (scratch + library) | ✅ Done | `MiniVectorStore` class scratch → FAISS `IndexFlatIP`+`normalize_L2`. Same result (0.417) = proof. Index vs cache, ANN clustering (mohalla), O(n) problem. Python class→JS (`__init__`/`self`). Mentor (session-04): IndexFlatL2, HNSW real code, memory calc. requirements.txt maintained. 1 diagram. Exercise solved (all correct; D1 trick caught). |
 
@@ -43,10 +46,12 @@
 ## ❓ Open Questions / Stuck Points
 _(koi nahi abhi)_
 
-## ▶️ Next session (Day 7 — Retrieval Quality: Top-K, MMR, threshold)
-- Ab pipeline REAL hai (PDF→Chroma with page metadata) — par retrieval TUNE karna nahi seekha.
-- Day 7 goal: retrieval ke quality knobs — **top_k kitna ho, similarity threshold (kachra cut),
-  MMR** (diversity — same-jaise 3 chunks ki jagah alag-alag angles).
+## ▶️ Next session (Day 8 — End-to-end RAG bot, own dataset)
+- Ab tak: load→clean→chunk→embed→store→tuned-retrieve sab alag-alag seekha. Day 8 = SAB JODO.
+- Goal: ek proper `RAGBot` class/module — ingest() + ask() — Day 6 pipeline + Day 7 tuned retrieval
+  + Claude generation + citations, apne (ya naye) dataset pe. Yeh Phase-1/2 ka capstone.
+- Mentor: `session-04/session4_bajajbot_complete.ipynb` + `Projects/BFL_chatbot/` (full structure).
+- Frontend bridge: ek reusable service/module (jaise ek API client class).
 - Day 6 wale bajaj_policy Chroma collection ko hi reuse karo (40 chunks ready hain).
 - Mentor: `04_RAG_NLP/session-06-07/03_retreiveal.ipynb` + `Projects/BFL_chatbot/app/rag_chain.py`
   (LIVE MMR config: `k`, `fetch_k`, `lambda_mult`).
