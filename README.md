@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%209%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%2010%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
@@ -41,8 +41,8 @@ docs/           # mentor-map, course-sync, future module blueprints
 | Phase | Days | Focus | Status |
 |-------|------|-------|--------|
 | 🔵 RAG from Scratch | 1–4 | Embeddings, cosine, chunking, FAISS — all hand-built | ✅ |
-| 🟢 Connecting the Dots | 5–8 | ChromaDB, document loaders, retrieval quality, e2e bot | 🔄 |
-| 🟡 Frameworks | 9–13 | LangChain, LlamaIndex, routing, RAGAS evaluation | ⏳ |
+| 🟢 Connecting the Dots | 5–8 | ChromaDB, document loaders, retrieval quality, e2e bot | ✅ |
+| 🟡 Frameworks | 9–13 | LangChain, LlamaIndex, routing, RAGAS evaluation | 🔄 |
 | 🟣 Advanced RAG | 14–18 | HyDE, re-ranking, multi-query, Agentic RAG | ⏳ |
 | 🟠 Full Project | 19–25 | React/Angular + FastAPI + Chroma + Claude full-stack app | ⏳ |
 
@@ -65,6 +65,9 @@ docs/           # mentor-map, course-sync, future module blueprints
 - **Day 9** — 🟡 **Phase 3 (frameworks):** rebuilt the whole RAG flow as a LangChain **LCEL chain**
   (`retriever | prompt | llm | parser`) — after first building the `|` pipe *from scratch* with operator
   overloading, so the framework reads as a shortcut, not a black box (vanilla-JS → React, for RAG)
+- **Day 10** — Rebuilt the same RAG with **LlamaIndex** and ran both frameworks side-by-side on one
+  query — same answer, ~4 lines vs ~10. LangChain = React (control), LlamaIndex = Next.js (convenience);
+  a good engineer knows when to reach for each
 
 ## 🧰 Stack
 

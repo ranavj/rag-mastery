@@ -33,3 +33,9 @@ streamlit              # Python se browser chat UI (RAGBot ke upar)
 # --- Day 9: LangChain LCEL ---
 langchain              # LCEL chains, runnables
 langchain-anthropic    # Claude as a LangChain model (ChatAnthropic)
+
+# --- Day 10: LlamaIndex (2nd framework) ---
+llama-index-core==0.11.23            # py3.9 compatible pin
+llama-index-embeddings-huggingface   # local embeddings
+llama-index-readers-file             # PDFReader
+llama-index-llms-langchain           # bridge: use LangChain LLM (ChatAnthropic) in LlamaIndex

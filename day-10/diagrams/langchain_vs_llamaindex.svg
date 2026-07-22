@@ -1,0 +1,59 @@
+<svg viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, sans-serif" role="img">
+  <title>Day 10: LangChain vs LlamaIndex — same RAG, different philosophy</title>
+  <rect width="720" height="520" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a1a">Day 10 — LangChain vs LlamaIndex (wahi RAG, alag mizaaj)</text>
+
+  <!-- LangChain -->
+  <rect x="30" y="55" width="320" height="270" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="190" y="80" text-anchor="middle" font-size="14" font-weight="800" fill="#4338ca">LangChain 🔧</text>
+  <text x="190" y="100" text-anchor="middle" font-size="10" fill="#6366f1">"control do mujhe" — pieces khud jodo</text>
+
+  <rect x="50" y="115" width="280" height="26" rx="6" fill="#fff"/>
+  <text x="60" y="132" font-size="9.5" font-family="monospace" fill="#334155">docs = PyPDFLoader(pdf).load()</text>
+  <rect x="50" y="145" width="280" height="26" rx="6" fill="#fff"/>
+  <text x="60" y="162" font-size="9.5" font-family="monospace" fill="#334155">chunks = splitter.split_documents(docs)</text>
+  <rect x="50" y="175" width="280" height="26" rx="6" fill="#fff"/>
+  <text x="60" y="192" font-size="9.5" font-family="monospace" fill="#334155">vs = Chroma.from_documents(chunks, emb)</text>
+  <rect x="50" y="205" width="280" height="26" rx="6" fill="#fff"/>
+  <text x="60" y="222" font-size="9.5" font-family="monospace" fill="#334155">retriever = vs.as_retriever(k=3)</text>
+  <rect x="50" y="235" width="280" height="26" rx="6" fill="#fff"/>
+  <text x="60" y="252" font-size="9.5" font-family="monospace" fill="#334155">chain = ...|prompt|llm|parser</text>
+  <rect x="50" y="265" width="280" height="26" rx="6" fill="#fff"/>
+  <text x="60" y="282" font-size="9.5" font-family="monospace" fill="#334155">chain.invoke(q)</text>
+  <text x="190" y="312" text-anchor="middle" font-size="11" font-weight="700" fill="#4338ca">~10 lines · flexible · = React</text>
+
+  <!-- LlamaIndex -->
+  <rect x="370" y="55" width="320" height="270" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="530" y="80" text-anchor="middle" font-size="14" font-weight="800" fill="#15803d">LlamaIndex 🦙</text>
+  <text x="530" y="100" text-anchor="middle" font-size="10" fill="#16a34a">"mujhpe chhod do" — framework sab kare</text>
+
+  <rect x="390" y="115" width="280" height="26" rx="6" fill="#fff"/>
+  <text x="400" y="132" font-size="9.5" font-family="monospace" fill="#334155">docs = PDFReader().load_data(pdf)</text>
+  <rect x="390" y="150" width="280" height="40" rx="6" fill="#dcfce7" stroke="#86efac"/>
+  <text x="400" y="167" font-size="9.5" font-family="monospace" fill="#166534">index = VectorStoreIndex</text>
+  <text x="400" y="182" font-size="9.5" font-family="monospace" fill="#166534">        .from_documents(docs)</text>
+  <text x="620" y="177" font-size="8" fill="#16a34a">chunk+embed+store!</text>
+  <rect x="390" y="198" width="280" height="26" rx="6" fill="#fff"/>
+  <text x="400" y="215" font-size="9.5" font-family="monospace" fill="#334155">engine = index.as_query_engine(k=3)</text>
+  <rect x="390" y="232" width="280" height="26" rx="6" fill="#fff"/>
+  <text x="400" y="249" font-size="9.5" font-family="monospace" fill="#334155">engine.query(q)</text>
+  <text x="530" y="290" text-anchor="middle" font-size="9" fill="#16a34a">retriever+prompt+llm sab .query() me packed</text>
+  <text x="530" y="312" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">~4 lines · opinionated · = Next.js</text>
+
+  <!-- same result -->
+  <rect x="130" y="340" width="460" height="46" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="360" y="360" text-anchor="middle" font-size="11" font-weight="700" fill="#ea580c">Same query → LAGBHAG SAME jawab</text>
+  <text x="360" y="378" text-anchor="middle" font-size="10" fill="#c2410c">"EMI bounce?" → ₹1,000 + GST, T+1 din (dono se)</text>
+
+  <!-- when to use -->
+  <rect x="30" y="400" width="660" height="66" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="360" y="422" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Kaunsa kab?</text>
+  <text x="185" y="444" text-anchor="middle" font-size="10" fill="#475569">LangChain: complex/custom flows,</text>
+  <text x="185" y="459" text-anchor="middle" font-size="10" fill="#475569">agents, poora control chahiye</text>
+  <text x="530" y="444" text-anchor="middle" font-size="10" fill="#475569">LlamaIndex: jaldi RAG banana,</text>
+  <text x="530" y="459" text-anchor="middle" font-size="10" fill="#475569">data/index pe focus, kam code</text>
+
+  <text x="360" y="495" text-anchor="middle" font-size="11" font-weight="800" fill="#1a1a1a">Dono wahi concepts chhupaye (Day 1-8) — bas kitna aap vs kitna framework kare.</text>
+
+  <defs></defs>
+</svg>
