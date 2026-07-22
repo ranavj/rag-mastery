@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%2010%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%2011%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
@@ -68,6 +68,9 @@ docs/           # mentor-map, course-sync, future module blueprints
 - **Day 10** — Rebuilt the same RAG with **LlamaIndex** and ran both frameworks side-by-side on one
   query — same answer, ~4 lines vs ~10. LangChain = React (control), LlamaIndex = Next.js (convenience);
   a good engineer knows when to reach for each
+- **Day 11** — **Query routing** across 3 knowledge sources: an embedding router (from scratch) vs an
+  LLM router (Claude picking the source). The moment the LLM *decides* instead of just *answers* is the
+  first taste of agents — the seed of Agentic RAG
 
 ## 🧰 Stack
 
