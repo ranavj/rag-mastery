@@ -1,0 +1,63 @@
+<svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, sans-serif" role="img">
+  <title>Day 12: RAG evaluation — LLM as judge, 3 RAGAS metrics</title>
+  <rect width="760" height="560" fill="#ffffff"/>
+  <text x="380" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a1a">Day 12 — RAG ka Report Card (eval = RAG ka unit test)</text>
+
+  <!-- analogy row -->
+  <rect x="30" y="50" width="345" height="52" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.2"/>
+  <text x="202" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="#4338ca">Code likha → unit test likho</text>
+  <text x="202" y="90" text-anchor="middle" font-size="9.5" fill="#6366f1">pass/fail (exact) · deterministic checker</text>
+  <rect x="385" y="50" width="345" height="52" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+  <text x="557" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">RAG banaya → eval (RAGAS) likho</text>
+  <text x="557" y="90" text-anchor="middle" font-size="9.5" fill="#16a34a">score 0-1 (fuzzy) · LLM-as-judge</text>
+
+  <!-- LLM as judge -->
+  <text x="380" y="128" text-anchor="middle" font-size="13" font-weight="800" fill="#374151">🧑‍⚖️ "LLM as a judge" — ek LLM doosre ka jawab check kare</text>
+
+  <rect x="60" y="145" width="140" height="44" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="130" y="163" text-anchor="middle" font-size="10" fill="#334155">Question</text>
+  <text x="130" y="180" text-anchor="middle" font-size="8.5" fill="#64748b">"EMI bounce?"</text>
+  <rect x="60" y="195" width="140" height="44" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="130" y="213" text-anchor="middle" font-size="10" fill="#334155">Context (chunks)</text>
+  <text x="130" y="230" text-anchor="middle" font-size="8.5" fill="#64748b">"Rs 1,000 + GST"</text>
+  <rect x="60" y="245" width="140" height="44" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="130" y="263" text-anchor="middle" font-size="10" fill="#334155">Answer</text>
+  <text x="130" y="280" text-anchor="middle" font-size="8.5" fill="#64748b">bot ka jawab</text>
+
+  <line x1="200" y1="217" x2="255" y2="217" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="258" y="188" width="120" height="58" rx="10" fill="#fdf4ff" stroke="#f0abfc" stroke-width="1.5"/>
+  <text x="318" y="212" text-anchor="middle" font-size="11" font-weight="700" fill="#a21caf">🧑‍⚖️ JUDGE</text>
+  <text x="318" y="228" text-anchor="middle" font-size="8.5" fill="#c026d3">(Claude)</text>
+  <text x="318" y="240" text-anchor="middle" font-size="8" fill="#c026d3">0-1 score</text>
+
+  <line x1="378" y1="217" x2="420" y2="217" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- 3 metrics -->
+  <rect x="425" y="150" width="305" height="140" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+  <text x="577" y="172" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">3 RAGAS metrics (0-1)</text>
+  <text x="440" y="196" font-size="10" font-weight="700" fill="#92400e">• faithfulness</text>
+  <text x="455" y="210" font-size="8.5" fill="#a16207">jawab context pe based? (hallucination check)</text>
+  <text x="440" y="230" font-size="10" font-weight="700" fill="#92400e">• answer_relevancy</text>
+  <text x="455" y="244" font-size="8.5" fill="#a16207">jawab sawaal ka? (idhar-udhar to nahi)</text>
+  <text x="440" y="264" font-size="10" font-weight="700" fill="#92400e">• context_precision</text>
+  <text x="455" y="278" font-size="8.5" fill="#a16207">retrieved context relevant tha? (RETRIEVAL naapo)</text>
+
+  <!-- results -->
+  <text x="380" y="320" text-anchor="middle" font-size="12" font-weight="700" fill="#374151">Live result (query: "EMI bounce penalty?")</text>
+  <rect x="90" y="332" width="580" height="34" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="105" y="353" font-size="10" fill="#14532d">✅ ACHHA jawab (Rs 1,000):  faithfulness=1.00 · context_precision=1.00</text>
+  <rect x="90" y="372" width="580" height="34" rx="8" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="105" y="393" font-size="10" fill="#7f1d1d">❌ HALLUCINATED (Rs 5,000): faithfulness=0.00 ← jhooth PAKDA numbers me!</text>
+
+  <!-- lessons -->
+  <rect x="40" y="420" width="680" height="120" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="380" y="442" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Yaad rakhne wali baatein</text>
+  <text x="60" y="465" font-size="10" fill="#475569">• eval = "achha lag raha" (feeling) → ab NUMBER (faithfulness=0.85). Change ka asar naapo.</text>
+  <text x="60" y="484" font-size="10" fill="#475569">• faithfulness = anti-hallucination hero (jhooth = 0.00). context_precision = retrieval naapo.</text>
+  <text x="60" y="503" font-size="10" fill="#475569">• eval KHUD bhi perfect nahi (LLM/embedding pe based; relevancy ~0.45 = weak Hinglish emb).</text>
+  <text x="60" y="522" font-size="10" fill="#475569">  Isliye KAI metrics dekho, ek pe blind bharosa nahi. Frontend: RAG ka Lighthouse/Jest.</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="#9ca3af"/></marker>
+  </defs>
+</svg>

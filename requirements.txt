@@ -25,8 +25,6 @@ langchain-community    # LangChain loaders (PyPDFLoader, CSVLoader, TextLoader..
 # --- Day 7: Retrieval tuning ---
 langchain-chroma       # Chroma as LangChain retriever (mmr, score_threshold modes)
 
-# (aage add hoga: chromadb, langchain, llama-index, ragas, fastapi, etc.)
-
 # --- Day 8: End-to-end bot + UI ---
 streamlit              # Python se browser chat UI (RAGBot ke upar)
 
@@ -39,3 +37,7 @@ llama-index-core==0.11.23            # py3.9 compatible pin
 llama-index-embeddings-huggingface   # local embeddings
 llama-index-readers-file             # PDFReader
 llama-index-llms-langchain           # bridge: use LangChain LLM (ChatAnthropic) in LlamaIndex
+
+# --- Day 12-13: Evaluation ---
+ragas                  # RAG evaluation metrics (faithfulness, relevancy, context precision)
+datasets               # eval data as a table (rows = test cases)
