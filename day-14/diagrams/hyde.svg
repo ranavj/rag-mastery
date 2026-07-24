@@ -1,0 +1,50 @@
+<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, sans-serif" role="img">
+  <title>HyDE — query becomes a hypothetical answer, then search</title>
+  <rect width="720" height="480" fill="#ffffff"/>
+  <text x="360" y="30" text-anchor="middle" font-size="17" font-weight="800" fill="#1a1a1a">Day 14 - HyDE (query ko faraz-jawab banake dhundo)</text>
+
+  <!-- problem -->
+  <rect x="30" y="48" width="660" height="52" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.3"/>
+  <text x="360" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">Problem: query (chhota sawaal) aur document (bada jawab) ka ROOP alag - cosine kamzor</text>
+  <text x="360" y="88" text-anchor="middle" font-size="9.5" fill="#7f1d1d">"mera paisa kab wapas?" (casual) vs "Refund Policy: processed within 30 days..." (formal)</text>
+
+  <!-- NORMAL path -->
+  <text x="180" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">A) NORMAL (query se seedha)</text>
+  <rect x="60" y="140" width="240" height="40" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="180" y="164" text-anchor="middle" font-size="10" fill="#4338ca">"mera paisa kab wapas?"</text>
+  <line x1="180" y1="182" x2="180" y2="205" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+  <text x="230" y="198" font-size="8" fill="#6b7280">embed + search</text>
+  <rect x="60" y="208" width="240" height="46" rx="8" fill="#fee2e2" stroke="#fca5a5"/>
+  <text x="180" y="228" text-anchor="middle" font-size="9.5" fill="#7f1d1d">scores ~0 (bekaar)</text>
+  <text x="180" y="245" text-anchor="middle" font-size="9.5" font-weight="700" fill="#dc2626">best: Shipping ❌ (galat!)</text>
+
+  <!-- HyDE path -->
+  <text x="530" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">B) HyDE (faraz jawab se)</text>
+  <rect x="410" y="140" width="240" height="40" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="530" y="164" text-anchor="middle" font-size="10" fill="#4338ca">"mera paisa kab wapas?"</text>
+  <line x1="530" y1="182" x2="530" y2="200" stroke="#9333ea" stroke-width="2" marker-end="url(#p)"/>
+  <text x="592" y="195" font-size="8" fill="#9333ea">LLM se faraz jawab</text>
+  <rect x="410" y="203" width="240" height="46" rx="8" fill="#faf5ff" stroke="#d8b4fe"/>
+  <text x="530" y="222" text-anchor="middle" font-size="9" fill="#7e22ce">"Refund Policy: rakam 7-10 din</text>
+  <text x="530" y="237" text-anchor="middle" font-size="9" fill="#7e22ce">me process hoti..." (document-jaisa!)</text>
+  <line x1="530" y1="251" x2="530" y2="270" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+  <text x="585" y="265" font-size="8" fill="#6b7280">embed + search</text>
+  <rect x="410" y="273" width="240" height="46" rx="8" fill="#dcfce7" stroke="#86efac"/>
+  <text x="530" y="293" text-anchor="middle" font-size="9.5" fill="#15803d">Refund 0.52 (jump!)</text>
+  <text x="530" y="310" text-anchor="middle" font-size="9.5" font-weight="700" fill="#15803d">best: Refund ✅ (sahi!)</text>
+
+  <!-- key -->
+  <rect x="60" y="335" width="600" height="70" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="1.4"/>
+  <text x="360" y="357" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">Faraz jawab GALAT ho to bhi chalega!</text>
+  <text x="360" y="378" text-anchor="middle" font-size="9.5" fill="#92400e">Claude ne "7-10 din" likha (asli 30 din) - farak nahi. Woh jawab DENE ke liye nahi,</text>
+  <text x="360" y="394" text-anchor="middle" font-size="9.5" fill="#92400e">sahi DOCUMENT dhundhne ke liye hai. Sketch galat bhi ho to direction sahi.</text>
+
+  <text x="360" y="432" text-anchor="middle" font-size="10.5" font-weight="700" fill="#374151">HyDE = OPTIONAL tool (extra LLM call = slow+mehnga). Tab lagao jab query-doc mismatch + eval prove kare.</text>
+  <text x="360" y="454" text-anchor="middle" font-size="10" fill="#6b7280">Naya: LLM ab retrieval se PEHLE use hua (query transform) - pehle sirf end me tha</text>
+  <text x="360" y="472" text-anchor="middle" font-size="9.5" fill="#94a3b8">Frontend: search autocomplete/suggestions - adhoora query ko poora guess karke better result</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="#9ca3af"/></marker>
+    <marker id="p" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="#9333ea"/></marker>
+  </defs>
+</svg>

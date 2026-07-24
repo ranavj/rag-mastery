@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%2013%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%2014%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
@@ -42,8 +42,8 @@ docs/           # mentor-map, course-sync, future module blueprints
 |-------|------|-------|--------|
 | 🔵 RAG from Scratch | 1–4 | Embeddings, cosine, chunking, FAISS — all hand-built | ✅ |
 | 🟢 Connecting the Dots | 5–8 | ChromaDB, document loaders, retrieval quality, e2e bot | ✅ |
-| 🟡 Frameworks | 9–13 | LangChain, LlamaIndex, routing, RAGAS evaluation | 🔄 |
-| 🟣 Advanced RAG | 14–18 | HyDE, re-ranking, multi-query, Agentic RAG | ⏳ |
+| 🟡 Frameworks | 9–13 | LangChain, LlamaIndex, routing, RAGAS evaluation | ✅ |
+| 🟣 Advanced RAG | 14–18 | HyDE, re-ranking, multi-query, Agentic RAG | 🔄 |
 | 🟠 Full Project | 19–25 | React/Angular + FastAPI + Chroma + Claude full-stack app | ⏳ |
 
 ## ✅ Highlights so far
@@ -74,6 +74,9 @@ docs/           # mentor-map, course-sync, future module blueprints
 - **Day 12-13** — **Evaluation** with RAGAS — a report card for RAG. Built an LLM-as-judge from scratch,
   then ran real RAGAS metrics (faithfulness / relevancy / context precision). Faithfulness caught a
   hallucinated answer with a hard **0.00** — turning "looks right" into a number you can track
+- **Day 14** — 🟣 **Phase 4 (advanced):** **HyDE** — instead of searching the raw query, ask the LLM for a
+  hypothetical answer first and search *that*. A casual query that wrongly matched "Shipping" jumped to the
+  right "Refund" doc (0.52). The hypothetical can be wrong and still work — it's for finding, not answering
 
 ## 🧰 Stack
 
