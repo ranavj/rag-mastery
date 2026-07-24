@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>RAG Transform Animation</title>
+<style>body{margin:0;background:#020617;display:flex;justify-content:center;padding:30px;}</style></head>
+<body>
+<div id="root" style="background:#0f172a;border-radius:12px;padding:20px;font-family:-apple-system,'Segoe UI',sans-serif;color:#f8fafc;min-height:420px;max-width:640px;width:100%;position:relative;overflow:hidden;">
+  <div style="text-align:center;font-size:17px;font-weight:800;">Text - Chunk - Numbers - Vector DB</div>
+  <div id="stageLabel" style="text-align:center;font-size:12px;color:#fbbf24;font-weight:700;margin:6px 0 16px;height:16px;">...</div>
+  <div id="stage" style="position:relative;min-height:320px;"></div>
+</div>
+<script>
+(function(){
+  const el=document.getElementById('stage'),lbl=document.getElementById('stageLabel');
+  const S=(h)=>{el.innerHTML=h;};
+  const chunkStyle="background:#1e293b;border:1.5px solid #16a34a;border-radius:8px;padding:8px 10px;font-size:11px;color:#86efac;margin:6px;transition:all .8s;display:inline-block;";
+  const numStyle="background:#2a1435;border:1.5px solid #c084fc;border-radius:8px;padding:8px 10px;font-size:11px;color:#d8b4fe;font-family:monospace;margin:6px;transition:all .8s;display:inline-block;";
+  function stage1(){lbl.textContent="1. Pura text (ek bada document)";
+    S('<div style="max-width:520px;margin:20px auto;padding:18px;background:#1e293b;border:1.5px solid #6366f1;border-radius:10px;font-size:12px;line-height:1.9;color:#cbd5e1;">Refund 30 din ke andar milta hai. Delivery 5-7 working days leti hai. Warranty 1 saal ki hoti hai. Payment UPI aur card se hota hai.</div>');}
+  function stage2(){lbl.textContent="2. CHUNK - tukdo mein tut gaya";
+    S('<div style="text-align:center;margin-top:24px;"><div style="'+chunkStyle+'">Refund 30 din ke andar milta hai.</div><div style="'+chunkStyle+'">Delivery 5-7 working days leti hai.</div><br><div style="'+chunkStyle+'">Warranty 1 saal ki hoti hai.</div><div style="'+chunkStyle+'">Payment UPI aur card se hota hai.</div></div>');}
+  function stage3(){lbl.textContent="3. EMBED - har chunk NUMBERS ban raha";
+    S('<div style="display:flex;justify-content:center;gap:30px;align-items:center;margin-top:30px;flex-wrap:wrap;"><div><div style="'+chunkStyle+'">Refund 30 din...</div><br><div style="'+chunkStyle+'">Delivery 5-7...</div></div><div style="font-size:24px;color:#fbbf24;">-></div><div><div style="'+numStyle+'">[0.1, 0.8, 0.06, ...]</div><br><div style="'+numStyle+'">[0.3, 0.2, 0.71, ...]</div></div></div><div style="text-align:center;font-size:10px;color:#94a3b8;margin-top:18px;">model ne text ka meaning-fingerprint (384 numbers) banaya</div>');}
+  function stage4(){lbl.textContent="4. STORE - vectors ChromaDB mein gir rahe";
+    S('<div style="position:relative;height:300px;"><div id="v1" style="'+numStyle+'position:absolute;left:40%;top:0;">[0.1, 0.8, ...]</div><div id="v2" style="'+numStyle+'position:absolute;left:40%;top:0;opacity:0;">[0.3, 0.2, ...]</div><div style="position:absolute;left:50%;bottom:10px;transform:translateX(-50%);width:220px;text-align:center;"><div style="width:220px;height:26px;background:#0c2a3a;border:1.5px solid #38bdf8;border-radius:50%;"></div><div style="width:220px;height:90px;background:#0c2a3a;border-left:1.5px solid #38bdf8;border-right:1.5px solid #38bdf8;"></div><div style="width:220px;height:26px;background:#0c2a3a;border:1.5px solid #38bdf8;border-radius:50%;margin-top:-13px;"></div><div style="position:absolute;top:30px;left:0;width:100%;font-size:13px;font-weight:800;color:#7dd3fc;">ChromaDB</div><div style="position:absolute;top:56px;left:0;width:100%;font-size:9px;color:#38bdf8;">40 vectors stored (disk pe)</div></div></div>');
+    setTimeout(()=>{const v=document.getElementById('v1');if(v){v.style.top='210px';v.style.left='46%';v.style.opacity='0';}},60);
+    setTimeout(()=>{const v=document.getElementById('v2');if(v){v.style.opacity='1';v.style.top='210px';v.style.left='46%';}},700);}
+  function stage5(){lbl.textContent="Done - ab yahi vectors se query match hoti (retrieve)";
+    S('<div style="text-align:center;margin-top:40px;"><div style="font-size:40px;">DOC - CHUNK - NUM - DB</div><div style="margin-top:20px;font-size:13px;color:#cbd5e1;font-weight:700;">text - chunk - numbers - ChromaDB</div><div style="margin-top:10px;font-size:11px;color:#94a3b8;">Yahi SETUP hai (ek baar). Phir har query isi DB se match hoti.</div></div>');}
+  const stages=[stage1,stage2,stage3,stage4,stage5];let i=0;
+  function run(){stages[i]();i=(i+1)%stages.length;}
+  run();setInterval(run,2600);
+})();
+</script></body></html>

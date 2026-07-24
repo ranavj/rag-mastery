@@ -1,0 +1,80 @@
+<svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, sans-serif" role="img">
+  <title>Full RAG flow — chunk to eval in one picture</title>
+  <rect width="760" height="560" fill="#0f172a"/>
+  <text x="380" y="34" text-anchor="middle" font-size="18" font-weight="800" fill="#f8fafc">POORA RAG - Chunk se Eval tak (ek picture)</text>
+
+  <rect x="25" y="55" width="710" height="150" rx="12" fill="#132a1e" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="45" y="78" font-size="13" font-weight="800" fill="#4ade80">PART A - SETUP ("gyaan bharo", ek baar)</text>
+
+  <rect x="45" y="95" width="120" height="70" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="105" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#cbd5e1">1. CHUNK</text>
+  <text x="105" y="138" text-anchor="middle" font-size="8" fill="#94a3b8">doc - tukde</text>
+  <text x="105" y="152" text-anchor="middle" font-size="8" fill="#64748b">(pagination)</text>
+  <line x1="167" y1="130" x2="187" y2="130" stroke="#64748b" stroke-width="2" marker-end="url(#w)"/>
+
+  <rect x="189" y="95" width="120" height="70" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="249" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#cbd5e1">2. EMBED</text>
+  <text x="249" y="138" text-anchor="middle" font-size="8" fill="#94a3b8">text - numbers</text>
+  <text x="249" y="152" text-anchor="middle" font-size="8" fill="#64748b">(meaning)</text>
+  <line x1="311" y1="130" x2="331" y2="130" stroke="#64748b" stroke-width="2" marker-end="url(#w)"/>
+
+  <rect x="333" y="95" width="120" height="70" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="393" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#a78bfa">3. VECTOR</text>
+  <text x="393" y="138" text-anchor="middle" font-size="8" fill="#94a3b8">[0.1,0.8,...]</text>
+  <text x="393" y="152" text-anchor="middle" font-size="8" fill="#64748b">384 numbers</text>
+  <line x1="455" y1="130" x2="475" y2="130" stroke="#64748b" stroke-width="2" marker-end="url(#w)"/>
+
+  <rect x="477" y="95" width="240" height="70" rx="8" fill="#0c2a3a" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="597" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#7dd3fc">4. ChromaDB (store)</text>
+  <text x="597" y="138" text-anchor="middle" font-size="8.5" fill="#38bdf8">vectors + text + metadata, disk pe</text>
+  <text x="597" y="152" text-anchor="middle" font-size="8" fill="#64748b">(IndexedDB jaisa - persist)</text>
+
+  <line x1="380" y1="205" x2="380" y2="228" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#o)"/>
+  <text x="470" y="222" font-size="9" fill="#fbbf24">sawaal aaye toh</text>
+
+  <rect x="25" y="232" width="710" height="185" rx="12" fill="#2a1e13" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="45" y="255" font-size="13" font-weight="800" fill="#fbbf24">PART B - QUERY ("jawab do", har sawaal)</text>
+
+  <rect x="45" y="272" width="130" height="60" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="110" y="296" text-anchor="middle" font-size="10" font-weight="700" fill="#cbd5e1">query - embed</text>
+  <text x="110" y="313" text-anchor="middle" font-size="8" fill="#94a3b8">"paisa wapas?"</text>
+  <line x1="177" y1="302" x2="197" y2="302" stroke="#64748b" stroke-width="2" marker-end="url(#w)"/>
+
+  <rect x="199" y="272" width="160" height="60" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="279" y="292" text-anchor="middle" font-size="10" font-weight="700" fill="#fcd34d">5. RETRIEVE (cosine)</text>
+  <text x="279" y="309" text-anchor="middle" font-size="8" fill="#94a3b8">ChromaDB se milte-julte</text>
+  <text x="279" y="323" text-anchor="middle" font-size="8" fill="#64748b">chunks dhundo</text>
+  <line x1="361" y1="302" x2="381" y2="302" stroke="#64748b" stroke-width="2" marker-end="url(#w)"/>
+
+  <rect x="383" y="272" width="150" height="60" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="458" y="292" text-anchor="middle" font-size="10" font-weight="700" fill="#fcd34d">6. AUGMENT</text>
+  <text x="458" y="309" text-anchor="middle" font-size="8" fill="#94a3b8">chunks + query</text>
+  <text x="458" y="323" text-anchor="middle" font-size="8" fill="#64748b">= prompt</text>
+  <line x1="535" y1="302" x2="555" y2="302" stroke="#64748b" stroke-width="2" marker-end="url(#w)"/>
+
+  <rect x="557" y="272" width="160" height="60" rx="8" fill="#2a1435" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="637" y="292" text-anchor="middle" font-size="10" font-weight="700" fill="#d8b4fe">7. GENERATE</text>
+  <text x="637" y="309" text-anchor="middle" font-size="8" fill="#c084fc">Claude - jawab</text>
+  <text x="637" y="323" text-anchor="middle" font-size="8" fill="#64748b">(grounded)</text>
+
+  <line x1="637" y1="332" x2="637" y2="355" stroke="#64748b" stroke-width="2" marker-end="url(#w)"/>
+  <rect x="430" y="358" width="290" height="46" rx="8" fill="#132a1e" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="575" y="378" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4ade80">8. ANSWER + CITE</text>
+  <text x="575" y="394" text-anchor="middle" font-size="8.5" fill="#86efac">"Refund 30 din"  page 2</text>
+
+  <line x1="430" y1="381" x2="360" y2="381" stroke="#64748b" stroke-width="2" marker-end="url(#w)"/>
+  <rect x="45" y="358" width="300" height="46" rx="8" fill="#3a1420" stroke="#f87171" stroke-width="1.5"/>
+  <text x="195" y="378" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fca5a5">9. EVAL (report card)</text>
+  <text x="195" y="394" text-anchor="middle" font-size="8.5" fill="#fecaca">faithfulness / relevancy / precision (0-1)</text>
+
+  <rect x="25" y="432" width="710" height="110" rx="12" fill="#1e2749" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="380" y="456" text-anchor="middle" font-size="11" font-weight="800" fill="#a5b4fc">Ek line: doc-chunk-embed-vector-ChromaDB || query-retrieve-augment-Claude-answer+cite-eval</text>
+  <text x="380" y="482" text-anchor="middle" font-size="10" fill="#cbd5e1">SETUP (A) ek baar - QUERY (B) har sawaal - EVAL (C) report card</text>
+  <text x="380" y="504" text-anchor="middle" font-size="10" fill="#cbd5e1">Frontend: ingest() setup + ask() query + test() eval - jaise ek service class</text>
+  <text x="380" y="526" text-anchor="middle" font-size="9.5" fill="#818cf8">Yahi poora RAG. Baaki sab (routing, MMR, HyDE, frameworks) is core ke UPGRADE hain.</text>
+
+  <defs>
+    <marker id="w" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><path d="M0,0 L6,4 L0,8 Z" fill="#64748b"/></marker>
+    <marker id="o" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="#f59e0b"/></marker>
+  </defs>
+</svg>
