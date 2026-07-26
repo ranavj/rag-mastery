@@ -27,7 +27,8 @@ RAG = one-shot (retrieve→generate). **Agent = LOOP** (soch → tool → soch �
 | S5 Multi-Agent Systems | MAS patterns | coordination need; **centralised** (orchestrator) vs **peer-to-peer**; architecture **decision matrix**; drug-discovery case study. Readings: Anthropic "Building Effective Agents" (MUST), multi-agent research system, Cisco JARVIS |
 | S6 CrewAI | pehla MAS framework | Agent (role/goal/backstory) + Task + Crew (Process.sequential); **YAML config pattern**; kickoff_async; `@tool` + task chaining; LangGraph (low-level/React) vs CrewAI (high-level/Angular) |
 | S6-full (Sun) | patterns + MAS in code | CrewAI: **Planning/Reflection/Human-Input** patterns + SerperDevTool + multi-agent collab. **CodeSentinel v3 (LangGraph): Supervisor pattern** — Manager decides specialists via pydantic `ReviewPlan` → security/style/test workers → final review. Centralised MAS theory→code |
-| S7 (Sat) | **Three C's in MAS** | "CCC" = **Communication** (blackboard/shared state = ReviewState = Redux store), **Coordination** (Manager/Supervisor agent), **Cooperation** (specialists jodke goal). Rule: "koi bhi agentic system banao → CCC socho". Agent = llm+prompt+memory+tools+output-format |
+| S7 (Sat) | **Three C's in MAS** | "CCC" = **Communication** (blackboard/shared state = ReviewState = Redux store), **Coordination** (Manager/Supervisor agent), **Cooperation** (specialists jodke goal). Rule: "koi bhi agentic system banao → CCC socho". Agent = llm+prompt+memory+tools+output-format. Full MAS: manager→conditional-route→5 specialists→aggregator→approval(HITL)→post |
+| S8 (Sun) | **MCP** (Model Context Protocol) | Universal "plug" agent↔tool (USB-C analogy). `FastMCP`, `@mcp.tool()`, `@mcp.prompt()`, weather_server. Components: Tools/Resources/Prompts. JSON-RPC transport. **A2A** = agent↔agent protocol. KEY: Claude Code khud MCP pe |
 
 ---
 
