@@ -118,5 +118,8 @@ CLEAN  (fixed):  2 parents  → foreclosure gayab, sirf sahi
 - **parent_id** = child me parent ka pointer (foreign key).
 - **fan-out** = ek input se kai parallel calls.
 
-## Mentor comparison
-_(TODO: coding_ninja_genai me multi-query / parent-child / MultiQueryRetriever dhoondhna. Abhi tak scratch-first kiya.)_
+## Mentor comparison (coding_ninja_genai)
+**Mentor repo me Multi-Query / Parent-Child NAHI hai** — poore repo me `multi-query`, `parent-document`, `parent-child` ka **zero match** (grep). Yani Day 16 = **bonus depth** (Day 14 HyDE jaisa), mentor course se aage.
+
+- Sabse kareeb reranking/retrieval-quality references Day 15 wale hi hain (`session-04/session4_bajajbot_complete.ipynb`, `Projects/hireflow`), par wahan bhi query-fan-out ya parent-child chunking nahi.
+- Mentor ka "recall badhane" ka tareeka alag tha: **Hybrid (BM25 sparse + dense EnsembleRetriever)** — Multi-Query ka ek alternative (dono recall target karte, par mechanism alag: hybrid = do retriever mila, multi-query = ek query ke kai roop).

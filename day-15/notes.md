@@ -81,5 +81,16 @@ Scratch ke 3 manual kaam → LangChain 2 wrapper me:
 - Result File 1 jaisa hi FLIP (D1 echo #1 → D0 sahi #1). Concepts andar chhupe (Day 9 lesson dobara).
 - Imports: `langchain_community.embeddings.SentenceTransformerEmbeddings`, `langchain_chroma.Chroma`, `langchain.retrievers.ContextualCompressionRetriever` + `.document_compressors.CrossEncoderReranker`, `langchain_community.cross_encoders.HuggingFaceCrossEncoder`.
 
-## Mentor comparison
-_(TODO: coding_ninja_genai me reranker/Cohere rerank dhoondhna — session-06-07/advanced. Abhi tak scratch-first kiya.)_
+## Mentor comparison (coding_ninja_genai)
+Mentor ke paas re-ranking **DO jagah** hai:
+
+**1. `04_RAG_NLP/session-04/session4_bajajbot_complete.ipynb` (Step 7 "Reranking"):**
+- **Bi-encoder vs Cross-encoder LIVE** (same `all-MiniLM-L6-v2` bi + `CrossEncoder`, "separately vs together") — **hamare scratch File 1 se hu-ba-hu**. Definition bhi same: "reranking = second smarter pass over top candidates to fix ordering".
+- **Humse EXTRA:** BM25 reranking (keyword-based rerank), Hybrid `EnsembleRetriever` (BM25 30% + dense 70%), eval metrics (Precision/Recall/MRR/NDCG@K). Final `bajajbot_v04` pipeline = Hybrid retrieval → **BM25** rerank → LLM (cross-encoder sirf demo me).
+
+**2. `Projects/hireflow/retrieval/reranker.py` (PRODUCTION code):**
+- Cross-encoder rerank, **exact scratch pattern:** `pairs=[(query, text)] → model.predict(pairs) → rerank_score attach → sort desc → top_k`.
+- `retriever.py`: Pinecone se `top_k=20` shortlist; comment: *"more than needed so reranker has enough candidates... final top-k applied after reranking"* — **hamara `shortlist_k > final_k` lesson word-for-word.** Dedup bhi: "keep only best chunk per candidate" (`seen_candidate_ids` set).
+- 🐛 **Catch:** mentor `cross-encoder/ms-marco-MiniLM-L-6-v2` use karta — **wahi L-6 jo hamare Day-15 echo-trap test me FAIL hua tha** (humne L-12 use kiya, wo pass). Yani mentor ka production reranker upgrade ho sakta (L-6 → L-12). Cohere API nahi — local cross-encoder.
+
+Net: mentor ne re-ranking cover ki (bajaj notebook + hireflow prod). Hamara Day 15 usi ko scratch-first + eval-driven "kab optional" angle se gehra kiya.
