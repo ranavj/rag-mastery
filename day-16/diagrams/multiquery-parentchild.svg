@@ -1,0 +1,97 @@
+<svg viewBox="0 0 920 900" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="920" height="900" fill="#ffffff"/>
+  <text x="460" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#5b21b6">Multi-Query + Parent-Child — Bajaj Bot me</text>
+
+  <!-- USER QUERY -->
+  <rect x="300" y="52" width="320" height="46" rx="23" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="460" y="72" text-anchor="middle" font-size="14" fill="#4c1d95">User:</text>
+  <text x="460" y="90" text-anchor="middle" font-size="14" font-weight="600" fill="#1f2937">"EMI bounce hone pe kitna charge?"</text>
+  <line x1="460" y1="98" x2="460" y2="128" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STEP 1 : MULTI-QUERY -->
+  <text x="40" y="152" font-size="15" font-weight="700" fill="#7c3aed">1. MULTI-QUERY  —  LLM se query ke kai roop (fan-out)</text>
+  <rect x="380" y="164" width="160" height="38" rx="8" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="460" y="188" text-anchor="middle" font-size="13" font-weight="600" fill="#5b21b6">LLM (query rewriter)</text>
+
+  <!-- three variants -->
+  <line x1="460" y1="202" x2="170" y2="238" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="460" y1="202" x2="460" y2="238" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="460" y1="202" x2="760" y2="238" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40"  y="240" width="260" height="40" rx="8" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="170" y="265" text-anchor="middle" font-size="12" fill="#1f2937">"EMI bounce charge kitna hai?"</text>
+  <rect x="330" y="240" width="260" height="40" rx="8" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="460" y="265" text-anchor="middle" font-size="12" fill="#1f2937">"Installment miss pe penalty?"</text>
+  <rect x="620" y="240" width="260" height="40" rx="8" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="750" y="265" text-anchor="middle" font-size="12" fill="#1f2937">"Payment fail pe kya fees?"</text>
+
+  <!-- STEP 2 : SEARCH ON CHILD -->
+  <text x="40" y="320" font-size="15" font-weight="700" fill="#2563eb">2. Har roop ki search  —  chhote CHILD chunks pe (sटीक)</text>
+
+  <line x1="170" y1="280" x2="170" y2="342" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="460" y1="280" x2="460" y2="342" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="750" y1="280" x2="750" y2="342" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- child store box -->
+  <rect x="40" y="344" width="840" height="96" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="56" y="364" font-size="12" font-weight="600" fill="#1d4ed8">ChromaDB — sirf CHILD chunks embed (chhote = focused search)</text>
+
+  <rect x="70"  y="376" width="150" height="52" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="145" y="398" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">child C-7</text>
+  <text x="145" y="416" text-anchor="middle" font-size="11" fill="#374151">parent_id: P-2</text>
+
+  <rect x="385" y="376" width="150" height="52" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="460" y="398" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">child C-19</text>
+  <text x="460" y="416" text-anchor="middle" font-size="11" fill="#374151">parent_id: P-5</text>
+
+  <rect x="700" y="376" width="150" height="52" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="775" y="398" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">child C-7</text>
+  <text x="775" y="416" text-anchor="middle" font-size="11" fill="#374151">(duplicate!)</text>
+
+  <!-- merge -->
+  <line x1="145" y1="440" x2="440" y2="470" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="460" y1="440" x2="460" y2="470" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="775" y1="440" x2="480" y2="470" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="300" y="472" width="320" height="40" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="460" y="497" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">MERGE + unique  →  { C-7, C-19 }</text>
+  <line x1="460" y1="512" x2="460" y2="542" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STEP 3 : PARENT LOOKUP -->
+  <text x="40" y="560" font-size="15" font-weight="700" fill="#d97706">3. parent_id se PARENT lookup  —  dhoondha child se, dega parent</text>
+
+  <rect x="120" y="576" width="320" height="86" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="280" y="600" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">PARENT P-2 (bada, ~2000 char)</text>
+  <text x="280" y="624" text-anchor="middle" font-size="11" fill="#78350f">"EMI bounce charge ₹1000 + GST,</text>
+  <text x="280" y="642" text-anchor="middle" font-size="11" fill="#78350f">agli EMI ke saath vasool... (page 2)"</text>
+
+  <rect x="480" y="576" width="320" height="86" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="640" y="600" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">PARENT P-5 (bada, ~2000 char)</text>
+  <text x="640" y="624" text-anchor="middle" font-size="11" fill="#78350f">"Late payment / penalty clause,</text>
+  <text x="640" y="642" text-anchor="middle" font-size="11" fill="#78350f">grace period aur charges... (page 7)"</text>
+
+  <text x="16" y="618" font-size="11" fill="#6b7280">C-7 → P-2</text>
+  <text x="820" y="618" font-size="11" fill="#6b7280">C-19 → P-5</text>
+
+  <line x1="280" y1="662" x2="440" y2="702" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="640" y1="662" x2="480" y2="702" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 4 : LLM ANSWER -->
+  <rect x="360" y="704" width="200" height="40" rx="8" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="460" y="729" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">Claude (poora context)</text>
+  <line x1="460" y1="744" x2="460" y2="774" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="250" y="776" width="420" height="60" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="460" y="800" text-anchor="middle" font-size="14" font-weight="700" fill="#166534">Answer:</text>
+  <text x="460" y="822" text-anchor="middle" font-size="13" fill="#14532d">"EMI bounce = ₹1000 + GST (page 2)"</text>
+
+  <!-- key note -->
+  <rect x="40" y="856" width="840" height="34" rx="8" fill="#faf5ff" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="460" y="878" text-anchor="middle" font-size="12.5" font-style="italic" fill="#5b21b6">Dhoondha CHILD se (chhota = sटीक search) · Diya PARENT (bada = poora context) · Multi-Query = miss na ho</text>
+</svg>

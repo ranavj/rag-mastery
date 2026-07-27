@@ -47,3 +47,7 @@ datasets               # eval data as a table (rows = test cases)
 #   CrossEncoder("cross-encoder/ms-marco-MiniLM-L-12-v2")  = Stage 2 reranker model
 # Library version me LangChain wrappers use hue (Day 9 langchain + langchain-community
 # se already available): ContextualCompressionRetriever + CrossEncoderReranker + HuggingFaceCrossEncoder
+
+# --- Day 16: Multi-Query + Parent-Child chunking ---
+# Koi NAYI library nahi — sab langchain (Day 9) ke andar hi:
+#   MultiQueryRetriever, ParentDocumentRetriever, InMemoryStore, RecursiveCharacterTextSplitter

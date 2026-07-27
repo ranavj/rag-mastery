@@ -82,6 +82,12 @@ docs/           # mentor-map, course-sync, future module blueprints
   honest lessons — a good bi-encoder often nails top-1 on clean data (re-ranking is optional), re-ranking
   can even make things *worse* (I caught it demoting the right answer live), and reranker quality matters
   (a small model failed where a bigger one fixed the flip). The takeaway is the same as HyDE: **prove it with eval**
+- **Day 16** — **Multi-Query + Parent-Child chunking.** Multi-Query fans one question into several LLM-worded
+  variants, searches all, and merges (higher recall). Parent-Child splits twice — small *children* get embedded
+  and searched (precise), but the matched child's *parent* (the full paragraph) is fetched from a side docstore
+  and handed to the LLM (full context). "Search the child, return the parent." Building both from scratch also
+  caught a real library bug: `MultiQueryRetriever`'s default parser turned the LLM's *"Here are 3 versions:"*
+  preamble into a query — fixed with a custom output parser
 
 ## 🧰 Stack
 
