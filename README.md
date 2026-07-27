@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%2014%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%2015%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
@@ -77,11 +77,17 @@ docs/           # mentor-map, course-sync, future module blueprints
 - **Day 14** — 🟣 **Phase 4 (advanced):** **HyDE** — instead of searching the raw query, ask the LLM for a
   hypothetical answer first and search *that*. A casual query that wrongly matched "Shipping" jumped to the
   right "Refund" doc (0.52). The hypothetical can be wrong and still work — it's for finding, not answering
+- **Day 15** — **Re-ranking** (2-stage retrieval): a fast bi-encoder builds a rough shortlist, then a slow
+  cross-encoder re-scores each *query+doc pair together* and re-sorts. Building it by hand surfaced three
+  honest lessons — a good bi-encoder often nails top-1 on clean data (re-ranking is optional), re-ranking
+  can even make things *worse* (I caught it demoting the right answer live), and reranker quality matters
+  (a small model failed where a bigger one fixed the flip). The takeaway is the same as HyDE: **prove it with eval**
 
 ## 🧰 Stack
 
 - **LLM:** Anthropic Claude (`claude-sonnet-4-6`)
 - **Embeddings:** `sentence-transformers` (all-MiniLM-L6-v2 — free, local)
+- **Re-ranking:** `sentence-transformers` CrossEncoder (ms-marco-MiniLM-L-12-v2) + LangChain reranker wrappers
 - **Vectors:** FAISS (in-memory index) + ChromaDB (persistent)
 - **Chunking:** LangChain text splitters
 - **Loaders:** pypdf + LangChain community loaders (PDF → text + page metadata)
