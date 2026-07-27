@@ -6,7 +6,7 @@ anthropic              # Claude LLM (generation)
 python-dotenv          # .env se API key load karna
 
 # --- Day 2: Embeddings + semantic search ---
-sentence-transformers  # free local embedding model (all-MiniLM-L6-v2); Day 15: CrossEncoder reranker (ms-marco-MiniLM-L-12-v2) bhi isi package se
+sentence-transformers  # free local embedding model (all-MiniLM-L6-v2)
 
 # --- Day 3: Chunking ---
 langchain-text-splitters   # RecursiveCharacterTextSplitter (smart chunking)
@@ -41,3 +41,9 @@ llama-index-llms-langchain           # bridge: use LangChain LLM (ChatAnthropic)
 # --- Day 12-13: Evaluation ---
 ragas                  # RAG evaluation metrics (faithfulness, relevancy, context precision)
 datasets               # eval data as a table (rows = test cases)
+
+# --- Day 15: Re-ranking (2-stage retrieval) ---
+# Koi NAYI library nahi — reranker sentence-transformers (Day 2) ke andar hi hai:
+#   CrossEncoder("cross-encoder/ms-marco-MiniLM-L-12-v2")  = Stage 2 reranker model
+# Library version me LangChain wrappers use hue (Day 9 langchain + langchain-community
+# se already available): ContextualCompressionRetriever + CrossEncoderReranker + HuggingFaceCrossEncoder
