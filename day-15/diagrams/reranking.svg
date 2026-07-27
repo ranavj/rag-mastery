@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Segoe UI, Arial, sans-serif">
+  <style>
+    .title{font-size:19px;font-weight:700;fill:#1f2937}
+    .lbl{font-size:13px;font-weight:600;fill:#111827}
+    .sub{font-size:11px;fill:#4b5563}
+    .box{rx:8;stroke-width:2}
+    .tag{font-size:10px;font-weight:700}
+    .mono{font-family:Consolas,monospace;font-size:11px;fill:#374151}
+  </style>
+
+  <text x="24" y="30" class="title">Re-ranking = 2-Stage Retrieval</text>
+
+  <!-- Query -->
+  <rect x="24" y="55" width="150" height="46" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+  <text x="99" y="76" text-anchor="middle" class="lbl">QUERY</text>
+  <text x="99" y="93" text-anchor="middle" class="sub">"kitne ghante chalta hai?"</text>
+
+  <!-- arrow -->
+  <line x1="174" y1="78" x2="214" y2="78" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Stage 1 -->
+  <rect x="214" y="45" width="230" height="120" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <rect x="214" y="45" width="230" height="24" rx="8" fill="#10b981"/>
+  <text x="329" y="62" text-anchor="middle" class="tag" fill="#ffffff">STAGE 1 — BI-ENCODER (fast, rough)</text>
+  <text x="228" y="90" class="sub">query &amp; doc ALAG embed → cosine</text>
+  <text x="228" y="112" class="mono">#1 D1 0.717  echo-trap ✗</text>
+  <text x="228" y="130" class="mono">#2 D0 0.686  SAHI (daba)</text>
+  <text x="228" y="148" class="mono">#3 D2 0.657 ...  (shortlist=4)</text>
+
+  <!-- arrow -->
+  <line x1="444" y1="105" x2="490" y2="105" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+  <text x="467" y="98" text-anchor="middle" class="sub">shortlist</text>
+
+  <!-- Stage 2 -->
+  <rect x="490" y="45" width="246" height="120" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <rect x="490" y="45" width="246" height="24" rx="8" fill="#ef4444"/>
+  <text x="613" y="62" text-anchor="middle" class="tag" fill="#ffffff">STAGE 2 — CROSS-ENCODER (slow, sateek)</text>
+  <text x="504" y="90" class="sub">query + doc EK SAATH → score</text>
+  <text x="504" y="112" class="mono">#1 D0 +5.01  SAHI ✓ upar!</text>
+  <text x="504" y="130" class="mono">#2 D1 +4.41  echo-trap neeche</text>
+  <text x="504" y="148" class="mono">re-sort → best final_k</text>
+
+  <!-- bottom: key contrast -->
+  <rect x="24" y="200" width="345" height="200" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="40" y="226" class="lbl">Bi-encoder (Stage 1)</text>
+  <text x="40" y="250" class="mono">[query] → vecA</text>
+  <text x="40" y="270" class="mono">[doc]   → vecB   (ingest time, query blind)</text>
+  <text x="40" y="290" class="mono">cosine(vecA, vecB)</text>
+  <text x="40" y="320" class="sub">✓ pehle se embed ho sakta → FAST (lakho docs)</text>
+  <text x="40" y="340" class="sub">✗ doc query dekhe bina bana → ROUGH</text>
+  <text x="40" y="374" class="sub" font-weight="700" fill="#059669">Kaam: wide net → shortlist (extra docs)</text>
+
+  <rect x="391" y="200" width="345" height="200" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="407" y="226" class="lbl">Cross-encoder (Stage 2)</text>
+  <text x="407" y="250" class="mono">[query + doc] → model → 0.94</text>
+  <text x="407" y="278" class="sub">✓ dono SAATH padhta → bahut ACCURATE</text>
+  <text x="407" y="298" class="sub">✗ pehle se embed NAHI (query runtime pe)</text>
+  <text x="407" y="318" class="sub">✗ har pair dobaara chalao → SLOW</text>
+  <text x="407" y="352" class="sub" font-weight="700" fill="#dc2626">Kaam: shortlist ko re-sort → best</text>
+  <text x="407" y="374" class="sub">⚠ jaadu nahi — eval se prove karo (Day 12)</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+</svg>

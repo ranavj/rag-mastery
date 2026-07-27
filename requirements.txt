@@ -6,7 +6,7 @@ anthropic              # Claude LLM (generation)
 python-dotenv          # .env se API key load karna
 
 # --- Day 2: Embeddings + semantic search ---
-sentence-transformers  # free local embedding model (all-MiniLM-L6-v2)
+sentence-transformers  # free local embedding model (all-MiniLM-L6-v2); Day 15: CrossEncoder reranker (ms-marco-MiniLM-L-12-v2) bhi isi package se
 
 # --- Day 3: Chunking ---
 langchain-text-splitters   # RecursiveCharacterTextSplitter (smart chunking)
