@@ -67,3 +67,7 @@ python-multipart       # file upload (multipart/form-data) for POST /api/upload
 # Koi NAYI pip library nahi — sab pehle se hai:
 #   Day 21 retrieval/generation: chromadb + sentence-transformers + langchain-anthropic (Day 5/2/1)
 #   Day 22 agent: langchain (create_tool_calling_agent, AgentExecutor) + langchain_core.tools.tool (Day 9/17-18)
+
+# --- Day 23: React frontend (Node, NOT Python) ---
+# Koi Python dep nahi. Frontend deps = capstone/frontend/package.json (react, vite, typescript).
+#   Setup: cd capstone/frontend && npm install && npm run dev  (port 5173)

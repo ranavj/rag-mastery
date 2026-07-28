@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%2022%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%2023%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
@@ -118,6 +118,12 @@ docs/           # mentor-map, course-sync, future module blueprints
   `create_tool_calling_agent` + `AgentExecutor` run the loop, and the real `tool_used` is read from the
   intermediate steps. Live: policy questions → `policy_search`, "VJ-100 balance?" → `account_api`, "today's
   weather?" → an honest "none" — no hallucination
+- **Day 23** — 🟠 **React + TypeScript frontend — the app is now full-stack.** A Vite/React/TS client
+  (`capstone/frontend/`) with an upload box and a chat window. The Day-19 `types.ts` contract pays off here:
+  imported straight into a typed `fetch` client, so responses need zero guessing. Each answer renders the real
+  `tool_used` as a colored badge (green `policy_search` / amber `account_api` / red `none`) plus page-citation
+  chips — the agent's decision made visible. Verified end-to-end in the browser: React → FastAPI → agent →
+  Claude → typed response → rendered
 
 ## 🧰 Stack
 
