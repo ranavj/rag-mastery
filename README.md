@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%2016%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%2021%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
