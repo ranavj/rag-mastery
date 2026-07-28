@@ -9,8 +9,15 @@ import os
 from fastapi import APIRouter, File, Form, UploadFile
 
 from app.config import UPLOAD_DIR
+from app.generation.rag_chain import answer
 from app.ingestion.pipeline import ingest_pdf
-from app.models.schemas import HealthResponse, UploadResponse
+from app.models.schemas import (
+    ChatRequest,
+    ChatResponse,
+    HealthResponse,
+    Source,
+    UploadResponse,
+)
 
 router = APIRouter()
 
@@ -37,4 +44,16 @@ async def upload(
         return UploadResponse(doc_id="", chunks=0, status="error")
 
 
-# Day 21-22: POST /chat -> retrieval+generation, phir agent
+@router.post("/chat", response_model=ChatResponse)
+def chat(req: ChatRequest) -> ChatResponse:
+    """
+    PLAIN RAG (Day 21): retrieve + Claude -> {answer, sources}.
+    tool_used = "policy_search" jab docs se jawab mila, warna "none".
+    (Day 22 me agent decide karega asli tool.)
+    """
+    text, sources = answer(req.question, company_id=req.company_id)
+    return ChatResponse(
+        answer=text,
+        sources=[Source(**s) for s in sources],
+        tool_used="policy_search" if sources else "none",
+    )

@@ -101,6 +101,16 @@ docs/           # mentor-map, course-sync, future module blueprints
   + a React/TS `frontend/`), each backend module carrying a docstring for which day fills it and which past day
   it reuses. Core idea: the **API contract as a single source of truth** — Pydantic `schemas.py` mirrored by
   TypeScript `types.ts`, three endpoints (`/api/upload`, `/api/chat` → `{answer, sources, tool_used}`, `/api/health`)
+- **Day 20** — 🟠 **Backend + ingestion pipeline.** Stood up the FastAPI backend (CORS, `/api/health`, auto
+  Swagger docs) and the ingestion pipeline: a PDF upload flows through load → clean → chunk (Day 3) → embed →
+  Chroma (Day 5), tagging every chunk with `company_id`, `doc_id`, and page. One collection filtered by
+  `company_id` = multi-tenant isolation. `POST /api/upload` returns `{doc_id, chunks}` — tested live on the
+  Bajaj PDF (46 chunks; a `company_id=acme` query returns nothing, proving the isolation)
+- **Day 21** — 🟠 **RAG core as an API (`POST /api/chat`).** No new RAG concept — pure wiring of earlier skills.
+  `retrieval/retriever.py` searches Chroma with a `company_id` filter and a distance threshold (0.7, *tuned by
+  probing real scores* — in-corpus ~0.5, out-of-corpus ~0.85). `generation/rag_chain.py` feeds the chunks to
+  Claude via an LCEL chain with a double grounding guard, returning a grounded answer plus page citations.
+  Live: "EMI bounce charge?" → ₹1,000+GST with citations; "pizza?" → an honest "not found"
 
 ## 🧰 Stack
 

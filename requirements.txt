@@ -57,3 +57,8 @@ datasets               # eval data as a table (rows = test cases)
 #   from langchain_core.tools import tool          # @tool (docstring = description)
 #   from langchain.agents import create_tool_calling_agent, AgentExecutor
 #   from langchain_anthropic import ChatAnthropic  # tool-calling capable LLM
+
+# --- Day 20: Capstone backend (FastAPI) — see also capstone/backend/requirements.txt ---
+fastapi                # REST API framework (Python ka Express/Nest)
+uvicorn[standard]      # ASGI server (uvicorn app.main:app --reload)
+python-multipart       # file upload (multipart/form-data) for POST /api/upload
