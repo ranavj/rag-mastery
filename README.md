@@ -95,6 +95,12 @@ docs/           # mentor-map, course-sync, future module blueprints
   function), then the same loop via LangChain's `AgentExecutor`. Two live experiments on tool descriptions:
   a *lying* description often fails to fool Claude (it cross-checks name + all tools), but an *under-scoped*
   one starves the tool and triggers a hallucination — so a description is the tool's boundary line
+- **Day 19** — 🟠 **Phase 5 (capstone) starts: design & architecture.** No heavy code — a blueprint day.
+  Locked the decisions (repo `capstone/`, Bajaj policy as seed corpus) and scaffolded **SmartSupport**, an
+  agentic RAG support bot: a hireflow-style `capstone/` skeleton (backend `ingestion/retrieval/generation/agent/api/models`
+  + a React/TS `frontend/`), each backend module carrying a docstring for which day fills it and which past day
+  it reuses. Core idea: the **API contract as a single source of truth** — Pydantic `schemas.py` mirrored by
+  TypeScript `types.ts`, three endpoints (`/api/upload`, `/api/chat` → `{answer, sources, tool_used}`, `/api/health`)
 
 ## 🧰 Stack
 

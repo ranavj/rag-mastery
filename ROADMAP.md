@@ -5,6 +5,7 @@
 > **Approach:** Build-first (scratch → frameworks → production). Har concept frontend analogy se connect hoga.
 > **Mentor reference:** https://github.com/rahul8879/coding_ninja_genai (`04_RAG_module`) — local copy: `/Users/vijayrana/coding_ninja_genai`
 > **Day ↔ mentor notebook mapping:** [`docs/mentor-map.md`](docs/mentor-map.md) — har din pehle scratch banao, phir mapped mentor file se compare karo
+> **🐍 Python foundations (parallel track):** [`../python-foundations`](../python-foundations/ROADMAP.md) — JS→Python 3-week roadmap. Scratch se Python confidence. Har day yahan ke RAG days se mapped hai.
 
 ---
 

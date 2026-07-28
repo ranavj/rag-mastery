@@ -1,0 +1,18 @@
+# SmartSupport backend — Day 19 skeleton (versions Day 20 pe pin karenge)
+# Sab pehle se rag-mastery venv me hai (Day 1-18). Yahan sirf list.
+
+fastapi                 # API framework (Day 20)
+uvicorn[standard]       # ASGI server (Day 20)
+python-multipart        # file upload (Day 20)
+python-dotenv           # .env (Day 20)
+
+langchain               # LCEL + agent (Day 9, 17-18)
+langchain-anthropic     # ChatAnthropic / Claude (Day 1+)
+langchain-chroma        # Chroma vectorstore (Day 5)
+langchain-community     # loaders (Day 6)
+chromadb                # vector DB (Day 5)
+sentence-transformers   # embeddings all-MiniLM-L6-v2 (Day 2)
+pypdf                   # PDF load (Day 6)
+
+# optional (prove-then-add)
+# ragas                 # eval (Day 12, Day 24)
