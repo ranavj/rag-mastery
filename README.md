@@ -43,7 +43,7 @@ docs/           # mentor-map, course-sync, future module blueprints
 | 🔵 RAG from Scratch | 1–4 | Embeddings, cosine, chunking, FAISS — all hand-built | ✅ |
 | 🟢 Connecting the Dots | 5–8 | ChromaDB, document loaders, retrieval quality, e2e bot | ✅ |
 | 🟡 Frameworks | 9–13 | LangChain, LlamaIndex, routing, RAGAS evaluation | ✅ |
-| 🟣 Advanced RAG | 14–18 | HyDE, re-ranking, multi-query, Agentic RAG | 🔄 |
+| 🟣 Advanced RAG | 14–18 | HyDE, re-ranking, multi-query, Agentic RAG | ✅ |
 | 🟠 Full Project | 19–25 | React/Angular + FastAPI + Chroma + Claude full-stack app | ⏳ |
 
 ## ✅ Highlights so far
@@ -88,6 +88,13 @@ docs/           # mentor-map, course-sync, future module blueprints
   and handed to the LLM (full context). "Search the child, return the parent." Building both from scratch also
   caught a real library bug: `MultiQueryRetriever`'s default parser turned the LLM's *"Here are 3 versions:"*
   preamble into a query — fixed with a custom output parser
+- **Day 17-18** — 🎉 **Phase 4 finale: Agentic RAG.** RAG stops being a straight pipe and becomes *one tool*
+  in an agent's hands. The LLM now **decides** which tool to call and with what input — policy questions go
+  to the RAG tool, live-account questions to an API tool, out-of-scope questions get an honest "don't know".
+  Built the agent loop from scratch first (the LLM emits a raw string → we *parse* it → call the real Python
+  function), then the same loop via LangChain's `AgentExecutor`. Two live experiments on tool descriptions:
+  a *lying* description often fails to fool Claude (it cross-checks name + all tools), but an *under-scoped*
+  one starves the tool and triggers a hallucination — so a description is the tool's boundary line
 
 ## 🧰 Stack
 

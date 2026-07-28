@@ -51,3 +51,9 @@ datasets               # eval data as a table (rows = test cases)
 # --- Day 16: Multi-Query + Parent-Child chunking ---
 # Koi NAYI library nahi — sab langchain (Day 9) ke andar hi:
 #   MultiQueryRetriever, ParentDocumentRetriever, InMemoryStore, RecursiveCharacterTextSplitter
+
+# --- Day 17-18: Agentic RAG (RAG + tool use) ---
+# Koi NAYI library nahi — sab langchain (Day 9) ke andar:
+#   from langchain_core.tools import tool          # @tool (docstring = description)
+#   from langchain.agents import create_tool_calling_agent, AgentExecutor
+#   from langchain_anthropic import ChatAnthropic  # tool-calling capable LLM

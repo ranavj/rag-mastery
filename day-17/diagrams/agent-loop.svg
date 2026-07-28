@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="860" height="560" fill="#0f172a"/>
+  <text x="430" y="34" fill="#f8fafc" font-size="22" font-weight="700" text-anchor="middle">Day 17-18 — Agentic RAG: seedhi rassi vs agent loop</text>
+
+  <!-- LEFT: Day 8 straight pipeline -->
+  <text x="210" y="72" fill="#94a3b8" font-size="15" font-weight="700" text-anchor="middle">Day 8 (seedhi rassi) — har query same</text>
+  <rect x="120" y="88" width="180" height="40" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="210" y="113" fill="#e2e8f0" font-size="14" text-anchor="middle">query</text>
+  <rect x="120" y="150" width="180" height="40" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="210" y="175" fill="#e2e8f0" font-size="14" text-anchor="middle">retrieve (hamesha)</text>
+  <rect x="120" y="212" width="180" height="40" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="210" y="237" fill="#e2e8f0" font-size="14" text-anchor="middle">Claude → jawab</text>
+  <line x1="210" y1="128" x2="210" y2="150" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="210" y1="190" x2="210" y2="212" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <text x="210" y="300" fill="#f87171" font-size="13" text-anchor="middle">order + steps FIXED</text>
+  <text x="210" y="320" fill="#f87171" font-size="13" text-anchor="middle">mausam/balance? → kachra</text>
+
+  <!-- divider -->
+  <line x1="420" y1="80" x2="420" y2="500" stroke="#334155" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- RIGHT: agent loop -->
+  <text x="640" y="72" fill="#a5b4fc" font-size="15" font-weight="700" text-anchor="middle">Day 17-18 (agent loop) — LLM khud chunta</text>
+
+  <rect x="550" y="88" width="180" height="38" rx="8" fill="#312e81" stroke="#6366f1"/>
+  <text x="640" y="112" fill="#e0e7ff" font-size="14" text-anchor="middle">query</text>
+
+  <rect x="500" y="150" width="280" height="66" rx="10" fill="#1e1b4b" stroke="#818cf8"/>
+  <text x="640" y="174" fill="#c7d2fe" font-size="13.5" text-anchor="middle" font-weight="700">LLM SOCHTA (tools ki desc dekhi)</text>
+  <text x="640" y="196" fill="#a5b4fc" font-size="12.5" text-anchor="middle">"kaunsa tool? kya input?" ya "final ANSWER?"</text>
+
+  <!-- decision to tool -->
+  <rect x="500" y="248" width="280" height="60" rx="10" fill="#083344" stroke="#22d3ee"/>
+  <text x="640" y="270" fill="#a5f3fc" font-size="12.5" text-anchor="middle" font-weight="700">raw string PARSE → Python function</text>
+  <text x="640" y="290" fill="#67e8f9" font-size="12" text-anchor="middle">policy_search(RAG)  |  account_balance(API)</text>
+
+  <rect x="500" y="340" width="280" height="44" rx="10" fill="#052e16" stroke="#4ade80"/>
+  <text x="640" y="367" fill="#bbf7d0" font-size="12.5" text-anchor="middle">tool RESULT wapas LLM ko de do</text>
+
+  <!-- arrows -->
+  <line x1="640" y1="126" x2="640" y2="150" stroke="#818cf8" stroke-width="2" marker-end="url(#b)"/>
+  <line x1="640" y1="216" x2="640" y2="248" stroke="#818cf8" stroke-width="2" marker-end="url(#b)"/>
+  <line x1="640" y1="308" x2="640" y2="340" stroke="#818cf8" stroke-width="2" marker-end="url(#b)"/>
+  <!-- loop back arrow -->
+  <path d="M500 362 C 440 362, 440 183, 500 183" fill="none" stroke="#f59e0b" stroke-width="2.2" marker-end="url(#c)"/>
+  <text x="452" y="278" fill="#fbbf24" font-size="11.5" text-anchor="middle" transform="rotate(-90 452 278)">loop: aur chahiye? dobara tool</text>
+
+  <!-- final answer -->
+  <rect x="500" y="418" width="280" height="42" rx="10" fill="#312e81" stroke="#6366f1"/>
+  <text x="640" y="444" fill="#e0e7ff" font-size="13.5" text-anchor="middle" font-weight="700">ANSWER (jab kaafi info) → user</text>
+  <path d="M760 362 C 815 362, 815 439, 780 439" fill="none" stroke="#4ade80" stroke-width="2" marker-end="url(#b)"/>
+
+  <text x="640" y="492" fill="#94a3b8" font-size="12" text-anchor="middle">RAG = ek tool. self-correcting (tool khaali → sach bol). description = LAKSHMAN REKHA.</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#64748b"/></marker>
+    <marker id="b" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#818cf8"/></marker>
+    <marker id="c" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#f59e0b"/></marker>
+  </defs>
+</svg>
