@@ -62,3 +62,8 @@ datasets               # eval data as a table (rows = test cases)
 fastapi                # REST API framework (Python ka Express/Nest)
 uvicorn[standard]      # ASGI server (uvicorn app.main:app --reload)
 python-multipart       # file upload (multipart/form-data) for POST /api/upload
+
+# --- Day 21-22: Capstone RAG + Agent (as API) ---
+# Koi NAYI pip library nahi — sab pehle se hai:
+#   Day 21 retrieval/generation: chromadb + sentence-transformers + langchain-anthropic (Day 5/2/1)
+#   Day 22 agent: langchain (create_tool_calling_agent, AgentExecutor) + langchain_core.tools.tool (Day 9/17-18)

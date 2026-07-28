@@ -3,7 +3,7 @@
 > **Learning Retrieval-Augmented Generation from scratch — through a frontend developer's lens.**
 > Every concept is first built in **pure Python by hand**, then compared with the real library. No black boxes.
 
-[![Progress](https://img.shields.io/badge/Progress-Day%2021%2F25-brightgreen)]()
+[![Progress](https://img.shields.io/badge/Progress-Day%2022%2F25-brightgreen)]()
 [![Python](https://img.shields.io/badge/Python-3.9-blue)]()
 [![LLM](https://img.shields.io/badge/LLM-Claude-orange)]()
 
@@ -111,6 +111,13 @@ docs/           # mentor-map, course-sync, future module blueprints
   probing real scores* — in-corpus ~0.5, out-of-corpus ~0.85). `generation/rag_chain.py` feeds the chunks to
   Claude via an LCEL chain with a double grounding guard, returning a grounded answer plus page citations.
   Live: "EMI bounce charge?" → ₹1,000+GST with citations; "pizza?" → an honest "not found"
+- **Day 22** — 🟠 **The agent layer — the capstone's differentiator.** `/api/chat` stops being a straight RAG
+  pipe: an agent now *decides* which tool to use. `agent/tools.py` exposes `policy_search` (wrapping Day 21's
+  RAG) and a mock `account_api` (live balance/EMI/status), each with a carefully scoped description. A
+  factory binds `company_id` into the tools via closure and captures citations through a shared state dict.
+  `create_tool_calling_agent` + `AgentExecutor` run the loop, and the real `tool_used` is read from the
+  intermediate steps. Live: policy questions → `policy_search`, "VJ-100 balance?" → `account_api`, "today's
+  weather?" → an honest "none" — no hallucination
 
 ## 🧰 Stack
 

@@ -8,8 +8,8 @@ import os
 
 from fastapi import APIRouter, File, Form, UploadFile
 
+from app.agent.agent import run_agent
 from app.config import UPLOAD_DIR
-from app.generation.rag_chain import answer
 from app.ingestion.pipeline import ingest_pdf
 from app.models.schemas import (
     ChatRequest,
@@ -47,13 +47,12 @@ async def upload(
 @router.post("/chat", response_model=ChatResponse)
 def chat(req: ChatRequest) -> ChatResponse:
     """
-    PLAIN RAG (Day 21): retrieve + Claude -> {answer, sources}.
-    tool_used = "policy_search" jab docs se jawab mila, warna "none".
-    (Day 22 me agent decide karega asli tool.)
+    AGENTIC (Day 22): agent KHUD tool chunta (policy_search / account_api / none).
+    tool_used ab ASLI decision hai (Day 21 me hardcode tha).
     """
-    text, sources = answer(req.question, company_id=req.company_id)
+    text, sources, tool_used = run_agent(req.question, company_id=req.company_id)
     return ChatResponse(
         answer=text,
         sources=[Source(**s) for s in sources],
-        tool_used="policy_search" if sources else "none",
+        tool_used=tool_used,
     )
