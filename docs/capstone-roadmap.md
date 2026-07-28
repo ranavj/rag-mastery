@@ -36,12 +36,18 @@ citations → eval → deploy). Multi-tenant + auth + billing + embed widget = *
 
 ---
 
+## ✅ DECIDED (locked 2026-07-28 — koi open point nahi bacha)
+- **Repo:** `rag-mastery/capstone/` (learner ne choose kiya).
+- **Seed corpus / first tenant:** **Bajaj policy** (Day 6 ke ready 40 chunks). NOTE: yeh sirf
+  demo/test ka SEED data hai (React app ka dummy/seed data jaisa) — app ki limitation NAHI. App
+  ka product hai hi "koi bhi PDF upload karo", toh baad me upload button se aur PDFs test kar sakte.
+  Bajaj isliye: (1) ready+tested, (2) finance domain me `account_api` mock natural, (3) demo-ready.
+
 ## 📁 Folder structure (mentor `hireflow` style)
-Alag repo banega ya `rag-mastery/capstone/`? → **DECIDE Day 19.** Recommended: apna naya repo
-`smartsupport` (portfolio ke liye clean), rag-mastery se code copy/reuse.
+Base folder: **`rag-mastery/capstone/`** (decided). rag-mastery ke purane din se code copy/reuse.
 
 ```
-smartsupport/
+rag-mastery/capstone/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py              # FastAPI app + routes + CORS
@@ -102,9 +108,9 @@ interface ChatResponse {
 > update, (4) commit + push. Diagram/exercise optional (jahan naya concept ho tab).
 
 ### 📐 Day 19 — Design & Architecture (NO heavy code)
-- [ ] **Repo decide:** naya `smartsupport` repo banao (recommended) ya `rag-mastery/capstone/`.
-- [ ] **First tenant/domain decide:** bajaj policy (ready corpus) ya apni company docs ya generic.
-- [ ] Folder structure create (upar wala skeleton).
+- [x] **Repo:** `rag-mastery/capstone/` (DECIDED).
+- [x] **Seed corpus / first tenant:** Bajaj policy (DECIDED — seed data, changeable via upload).
+- [ ] `capstone/` folder skeleton create (upar wala structure).
 - [ ] **API contract final** (upar wala draft refine + TS interfaces file + Pydantic schemas).
 - [ ] Data model: `company_id`, doc metadata (source, page, doc_id).
 - [ ] Architecture doc (yeh file + `capstone-arch.svg` ko project README me).
