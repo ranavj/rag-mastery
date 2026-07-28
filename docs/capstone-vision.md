@@ -14,8 +14,10 @@ Multi-Tenant RAG SaaS banega, PAR uska main differentiator = **agentic support a
 naya skill hai jo original vision me nahi tha.
 
 - **Frontend LOCKED: React + TypeScript** (Angular drop; learner ne fix kiya).
-- Architecture diagram (draft): agent loop + 3 tools + Chroma + Claude + RAGAS. Day 19 pe
-  refine karenge (tools final + API contract + TS interfaces).
+- Architecture diagram (draft): ingestion (upload, per-tenant) + React frontend + agent (3 tools)
+  + Chroma + Claude + RAGAS. Day 19 pe refine karenge (tools final + API contract + TS interfaces).
+
+![SmartSupport SaaS capstone architecture (draft)](capstone-arch.svg)
 - Realistic scope wahi: Day 19-25 = strong single-tenant version (agent ke saath), multi-tenant
   + auth + billing = post-course extension.
 
