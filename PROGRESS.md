@@ -5,6 +5,8 @@
 **Current status:** ✅ Day 17-18 done (scratch + library, Phase 4 🟣 COMPLETE) → Next: Day 19-20 (🟠 Phase 5 — Full-stack project design + architecture doc)
 **Last updated:** 2026-07-28
 **⚠️ Handoff note:** Teaching style = concept-FIRST, then code; frontend (React/Angular/TS) analogies; Hinglish; never dump code without explaining "why". Go SLOW, let learner predict before revealing.
+**📋 CAPSTONE PLAN:** Phase 5 (Day 19-25) ka full day-by-day plan = `docs/capstone-roadmap.md` (fresh session yahi padhe). Project = **SmartSupport SaaS** (RAG + agent + React). Vision: `docs/capstone-vision.md`. Diagram: `docs/capstone-arch.svg`.
+
 **⚠️ NEXT SESSION first task:** Day 17-18 FULLY DONE — exercise learner ne khud solve kiya (A/B/C/D + bonus, sab sahi; A2 me "argsort values nahi INDEX deta" wali confusion clear ki; B1 me "description = manual with LIMIT, example queries nahi" galti pakdi+fix ki). Push ho gaya (main). Ab Phase 5 shuru: **Day 19-20 (project design + architecture doc)** — mentor `Projects/hireflow/` ka folder structure (ingestion/retrieval/generation/api) copy-worthy hai. Learner frontend dev (React/Angular) hai → final app React/Angular + FastAPI + Chroma + Claude. PENDING (do TODO): (1) Day 17-18 **mentor comparison** — `coding_ninja_genai/05_Agentic_AI/` + `Projects/BFL_chatbot/app/bajaj_tools.py` dekhna, notes me "Mentor comparison" add karna; (2) weekend course pull overview (docs/course-sync.md). NOTE: Day 17-18 me 2 bug-experiment kiye — jhoothi/colliding desc se Claude fool NAHI hua (naam+cross-check robust), under-scoped desc reliable failure (tool bhookha→hallucination).
 
 ---
